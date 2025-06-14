@@ -8,7 +8,7 @@
     android:background="#087830">
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/select_mode_btn_achievements"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="10dp"
@@ -44,21 +44,29 @@
             android:textSize="34sp"
             android:textStyle="bold" />
 
-        <ImageButton
-            android:id="@+id/imageButton3"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/gameModeBtn" />
-
-        <ImageButton
-            android:id="@+id/imageButton2"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:backgroundTint="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/gameModeBtn" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <ImageButton
+                android:id="@+id/select_mode_btn_sim"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="sim mode"
+                android:scaleType="fitXY"
+                android:src="@drawable/gameModeBtn" />
+
+            <ImageButton
+                android:id="@+id/select_mode_btn_game"
+                android:layout_width="300dp"
+                android:layout_height="200dp"
+                android:backgroundTint="@android:color/transparent"
+                android:contentDescription="sim mode"
+                android:scaleType="fitXY"
+                android:src="@drawable/gameModeBtn" />
+        </LinearLayout>
 
     </LinearLayout>
 
