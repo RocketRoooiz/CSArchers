@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -43,7 +44,6 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"
                 android:ems="10"
-                android:hint="john_doe@dlsu.edu.ph"
                 android:inputType="textEmailAddress"
                 android:textColor="#FFFFFF" />
 
@@ -114,7 +114,18 @@
                 android:gravity="center"
                 android:text="Already Have an Account?"
                 android:textColor="#FFFFFFFF" />
+
         </LinearLayout>
+
+        <Button
+            android:id="@+id/register_btn_submit"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            android:text="submit"
+            android:textColor="#087830"
+            android:textSize="16sp" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
