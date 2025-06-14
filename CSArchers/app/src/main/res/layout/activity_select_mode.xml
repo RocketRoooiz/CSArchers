@@ -9,9 +9,9 @@
 
     <ImageButton
         android:id="@+id/select_mode_btn_achievements"
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_marginTop="10dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="24dp"
         android:adjustViewBounds="true"
         android:alpha="1.0"
         android:background="@android:color/transparent"
@@ -38,7 +38,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:padding="20dp"
+            android:padding="25dp"
             android:text="CSArchers"
             android:textColor="#FFFEFE"
             android:textSize="34sp"
@@ -47,6 +47,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:gravity="center"
             android:orientation="vertical">
 
             <ImageButton
@@ -56,7 +57,7 @@
                 android:backgroundTint="@android:color/transparent"
                 android:contentDescription="sim mode"
                 android:scaleType="fitXY"
-                android:src="@drawable/gameModeBtn" />
+                android:src="@drawable/modegame" />
 
             <ImageButton
                 android:id="@+id/select_mode_btn_game"
@@ -65,7 +66,7 @@
                 android:backgroundTint="@android:color/transparent"
                 android:contentDescription="sim mode"
                 android:scaleType="fitXY"
-                android:src="@drawable/gameModeBtn" />
+                android:src="@drawable/modegame" />
         </LinearLayout>
 
     </LinearLayout>

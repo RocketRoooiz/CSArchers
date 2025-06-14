@@ -9,6 +9,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:gravity="center"
         android:orientation="vertical">
 
         <TextView
@@ -29,7 +30,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/register_tv_username"
+                android:id="@+id/login_tv_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Username:"
@@ -38,13 +39,12 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/register_et_username"
+                android:id="@+id/login_et_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#FFFFFFFF"
                 android:ems="10"
                 android:inputType="text"
-                android:text="Name"
                 android:textColor="#FFFFFFFF" />
         </LinearLayout>
 
@@ -90,14 +90,26 @@
                 android:textColor="#FBFBFB" />
 
             <TextView
-                android:id="@+id/register_tv_login"
+                android:id="@+id/login_tv_create"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="Create Account"
                 android:textColor="#FFFFFFFF" />
+
         </LinearLayout>
 
+        <Button
+            android:id="@+id/login_btn_submit"
+            android:layout_width="150dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="10dp"
+            android:backgroundTint="@color/white"
+            android:text="submit"
+            android:textColor="#087830"
+            android:textSize="16sp" />
+
     </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
