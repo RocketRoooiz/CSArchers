@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#087830"
     android:orientation="vertical">
 
     <TextView
@@ -11,6 +12,302 @@
         android:gravity="center"
         android:padding="20dp"
         android:text="Topics"
-        android:textSize="24sp"
+        android:textColor="#FFFFFFFF"
+        android:textSize="34sp"
         android:textStyle="bold" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/topics_tv_arithmetic_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Integer Arithmetic"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_add"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="ADDITION (+)"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_mult"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="MULTIPLICATION (X)"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_sub"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="SUBTRACTION (-)"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_div"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="DIVISION (÷)"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/topics_tv_base_conversion_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Number System Base Conversion"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_bin_dec"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="Binary -> Decimal"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_bin_oct"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="Binary -> Octal"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_bin_hex"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="Binary -> Hex"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_dec_oct"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="Decimal -> Octal"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/topics_tv_iee_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="IEEE 754 Representation"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_flt32"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="Binary32 floating-point"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_dec32"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text=" BINARY32                         DECIMAL"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_flt64"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="Binary64 floating-point"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_dec64"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="BINARY64                                             DECIMAL"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingLeft="10dp"
+                    android:text="Unicode Representation"
+                    android:textColor="#FFFFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_utf8"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="UTF-8"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_utf32"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="UTF-32"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_utf16"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="@color/white"
+                            android:text="UTF-16"
+                            android:textColor="#087830"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
 </LinearLayout>

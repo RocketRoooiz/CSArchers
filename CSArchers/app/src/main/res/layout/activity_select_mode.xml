@@ -5,7 +5,7 @@
     android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#226603">
+    android:background="#087830">
 
     <ImageButton
         android:id="@+id/imageButton"
@@ -45,20 +45,20 @@
             android:textStyle="bold" />
 
         <ImageButton
-            android:id="@+id/imageButton2"
-            android:layout_width="wrap_content"
-            android:layout_height="296dp"
-            android:backgroundTint="@android:color/transparent"
-            android:scaleType="fitCenter"
-            android:src="@drawable/simulationMode" />
-
-        <ImageButton
             android:id="@+id/imageButton3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@android:color/transparent"
             android:scaleType="fitCenter"
-            android:src="@drawable/gameMode" />
+            android:src="@drawable/gameModeBtn" />
+
+        <ImageButton
+            android:id="@+id/imageButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/gameModeBtn" />
 
     </LinearLayout>
 
