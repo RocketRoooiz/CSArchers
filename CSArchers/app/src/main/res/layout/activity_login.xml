@@ -4,24 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#087830">
+    android:background="@drawable/background">
+
+    <ImageView
+        android:id="@+id/title_Iv"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:layout_marginTop="30dp"
+        android:padding="20dp"
+        android:src="@drawable/title"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout4" />
 
     <LinearLayout
+        android:id="@+id/linearLayout4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:orientation="vertical">
-
-        <TextView
-            android:id="@+id/register_tv_header"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:padding="20dp"
-            android:text="CSArchers"
-            android:textColor="#FFFEFE"
-            android:textSize="34sp"
-            android:textStyle="bold" />
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="0dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -33,8 +34,9 @@
                 android:id="@+id/login_tv_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
                 android:text="Username:"
-                android:textColor="#FFFFFFFF"
+                android:textColor="#334767"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -42,10 +44,11 @@
                 android:id="@+id/login_et_username"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFFFF"
+                android:backgroundTint="#334767"
                 android:ems="10"
+                android:fontFamily="@font/pixelify_sans"
                 android:inputType="text"
-                android:textColor="#FFFFFFFF" />
+                android:textColor="#334767" />
         </LinearLayout>
 
         <LinearLayout
@@ -58,8 +61,9 @@
                 android:id="@+id/register_tv_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
                 android:text="Password:"
-                android:textColor="#FFFFFFFF"
+                android:textColor="#334767"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
@@ -67,10 +71,11 @@
                 android:id="@+id/register_et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:backgroundTint="#FFFFFFFF"
+                android:backgroundTint="#334767"
                 android:ems="10"
+                android:fontFamily="@font/pixelify_sans"
                 android:inputType="textPassword"
-                android:textColor="#FFFFFFFF" />
+                android:textColor="#334767" />
         </LinearLayout>
 
         <LinearLayout
@@ -85,18 +90,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/pixelify_sans"
                 android:gravity="center"
                 android:text="Forgot Password?"
-                android:textColor="#FBFBFB" />
+                android:textColor="#334767" />
 
             <TextView
                 android:id="@+id/login_tv_create"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/pixelify_sans"
                 android:gravity="center"
                 android:text="Create Account"
-                android:textColor="#FFFFFFFF" />
+                android:textColor="#334767" />
 
         </LinearLayout>
 
@@ -105,9 +112,10 @@
             android:layout_width="150dp"
             android:layout_height="75dp"
             android:layout_marginTop="10dp"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="#334767"
+            android:fontFamily="@font/pixelify_sans"
             android:text="submit"
-            android:textColor="#087830"
+            android:textColor="#FFFFFF"
             android:textSize="16sp" />
 
     </LinearLayout>
