@@ -47,6 +47,7 @@
             android:label="CSArchers"
             android:theme="@style/Theme.CSArchers">
         </activity>
+        <activity android:name=".GameActivity" />
 
     </application>
 
