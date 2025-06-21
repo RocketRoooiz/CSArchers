@@ -11,7 +11,7 @@ class SelectModeActivity : ComponentActivity() {
         val viewBinding : ActivitySelectModeBinding = ActivitySelectModeBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
-        viewBinding.selectModeBtnSim.setOnClickListener({
+        viewBinding.selectModeBtnGame.setOnClickListener({
             val intent = Intent(this, TopicsActivity::class.java)
             startActivity(intent)
         })
