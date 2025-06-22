@@ -6,13 +6,14 @@
     android:id="@+id/binary_sim_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/simulation_background">
+    android:background="@drawable/simulation_background"
+    android:padding="10dp">
 
     <TextView
         android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="50dp"
         android:fontFamily="@font/minecraft"
         android:text="Decimal and Binary Converter"
         android:textSize="24sp"
@@ -36,7 +37,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:background="@null"
+            android:background="#E6C5A0"
             android:fontFamily="@font/minecraft"
             android:text="Signed"
             android:textColor="#564839" />
@@ -47,6 +48,7 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="20dp"
             android:layout_weight="1"
+            android:background="#E6C5A0"
             android:backgroundTint="#564839"
             android:fontFamily="@font/minecraft"
             android:text="Unsigned"
@@ -57,6 +59,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
+            android:background="#E6C5A0"
             android:backgroundTint="#564839"
             android:fontFamily="@font/minecraft"
             android:text="8"
@@ -68,7 +71,7 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_weight="1"
-            android:background="@null"
+            android:background="#E6C5A0"
             android:fontFamily="@font/minecraft"
             android:text="16"
             android:textColor="#564839"
@@ -91,16 +94,18 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/minecraft"
-            android:text="Decimal (Range: 0 - 255):"
-            android:textSize="16sp" />
+            android:text="Input Decimal (Range: 0 - 255):"
+            android:textSize="20sp" />
 
         <EditText
             android:id="@+id/binary_sim_decimal_input_et"
             android:layout_width="match_parent"
             android:layout_height="43dp"
-            android:background="@null"
+            android:background="#E4C39F"
             android:fontFamily="@font/minecraft"
             android:inputType="text"
+            android:padding="10dp"
+            android:textColor="#554739"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -149,12 +154,13 @@
             android:layout_height="wrap_content"
             android:fontFamily="@font/minecraft"
             android:text="Binary:"
-            android:textSize="16sp" />
+            android:textSize="20sp" />
 
         <LinearLayout
             android:id="@+id/binary_sim_binary_output_ll"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#E2C19E"
             android:orientation="horizontal">
 
             <TextView
@@ -231,6 +237,34 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="345dp"
+        android:layout_height="0dp"
+        android:layout_margin="25dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/binary_sim_binary_ll">
+
+        <TextView
+            android:id="@+id/solution_header_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/minecraft"
+            android:text="Solution:"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/solution_text_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/minecraft"
+            android:textSize="20sp" />
+    </LinearLayout>
+
     <!-- Minecraft Font Source: https://www.dafont.com/minecraft.fonthttps://www.dafont.com/minecraft.font-->
 </androidx.constraintlayout.widget.ConstraintLayout>
 

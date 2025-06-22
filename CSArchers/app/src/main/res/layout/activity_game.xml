@@ -258,6 +258,15 @@
                 android:textColor="@color/white" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/scratchpaper_Tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/pixelify_sans"
+            android:text="Scratch Paper:"
+            android:textColor="#554739"
+            android:textSize="20sp" />
+
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
