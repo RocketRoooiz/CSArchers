@@ -31,6 +31,34 @@
             app:layout_constraintWidth_percent=".7" />
 
 
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_margin="10dp"
+            android:background="@drawable/empty_board"
+            android:orientation="vertical"
+            android:padding="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".4">
+
+            <TextView
+                android:id="@+id/playerCharName_Tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
+                android:text="Archer Cat"
+                android:textColor="#554739"
+                android:textSize="16sp" />
+
+            <ProgressBar
+                android:id="@+id/playerHealth_Pb"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
+
         <ImageView
             android:id="@+id/enemy_Iv"
             android:layout_width="0dp"
@@ -41,6 +69,35 @@
             android:src="@drawable/character_tiger"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="10dp"
+            android:background="@drawable/empty_board"
+            android:orientation="vertical"
+            android:padding="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".4">
+
+            <TextView
+                android:id="@+id/enemyCharName_Tv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/pixelify_sans"
+                android:text="Tiger"
+                android:textColor="#554739"
+                android:textSize="16sp" />
+
+            <ProgressBar
+                android:id="@+id/enemyHealth_Pb"
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </LinearLayout>
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
