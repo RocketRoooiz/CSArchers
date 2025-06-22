@@ -47,7 +47,7 @@
                 android:id="@+id/playerCharName_Tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:text="Archer Cat"
                 android:textColor="#554739"
                 android:textSize="16sp" />
@@ -87,7 +87,7 @@
                 android:id="@+id/enemyCharName_Tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:text="Tiger"
                 android:textColor="#554739"
                 android:textSize="16sp" />
@@ -253,7 +253,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="2"
                 android:backgroundTint="#564839"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:text="Submit"
                 android:textColor="@color/white" />
         </LinearLayout>

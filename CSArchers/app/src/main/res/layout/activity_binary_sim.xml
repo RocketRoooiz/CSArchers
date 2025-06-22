@@ -1,24 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/binary_sim_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#F2E3C4">
+    android:background="@drawable/simulation_background">
 
     <TextView
         android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="9dp"
-        android:layout_marginEnd="27dp"
-        android:fontFamily="@font/pixelify_sans_bold"
+        android:layout_marginTop="30dp"
+        android:fontFamily="@font/minecraft"
         android:text="Decimal and Binary Converter"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,13 +24,12 @@
         android:id="@+id/binary_sim_datatype_ll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="49dp"
-        android:layout_marginEnd="27dp"
+        android:layout_marginTop="25dp"
         android:layout_weight="1"
         android:orientation="horizontal"
-        app:layout_constraintEnd_toStartOf="@+id/binary_sim_sizes_ll"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="56dp">
+        app:layout_constraintTop_toBottomOf="@+id/title_tv">
 
         <Button
             android:id="@+id/binary_sim_signed_btn"
@@ -40,7 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:background="@null"
-            android:fontFamily="@font/pixelify_sans"
+            android:fontFamily="@font/minecraft"
             android:text="Signed"
             android:textColor="#564839" />
 
@@ -48,22 +45,12 @@
             android:id="@+id/binary_sim_unsigned_btn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
             android:layout_weight="1"
             android:backgroundTint="#564839"
-            android:fontFamily="@font/pixelify_sans"
+            android:fontFamily="@font/minecraft"
             android:text="Unsigned"
             android:textColor="@color/white" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/binary_sim_sizes_ll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="59dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:layout_editor_absoluteY="56dp">
 
         <Button
             android:id="@+id/binary_sim_size_8_btn"
@@ -71,7 +58,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:backgroundTint="#564839"
-            android:fontFamily="@font/pixelify_sans"
+            android:fontFamily="@font/minecraft"
             android:text="8"
             android:textColor="@color/white"
             android:textSize="12sp" />
@@ -82,7 +69,7 @@
             android:layout_height="50dp"
             android:layout_weight="1"
             android:background="@null"
-            android:fontFamily="@font/pixelify_sans"
+            android:fontFamily="@font/minecraft"
             android:text="16"
             android:textColor="#564839"
             android:textSize="12sp" />
@@ -93,19 +80,17 @@
         android:id="@+id/binary_sim_decimal_ll"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="33dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/binary_sim_sizes_ll">
+        app:layout_constraintTop_toBottomOf="@+id/binary_sim_datatype_ll">
 
         <TextView
             android:id="@+id/binary_sim_decimal_header_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/pixelify_sans_bold"
+            android:fontFamily="@font/minecraft"
             android:text="Decimal (Range: 0 - 255):"
             android:textSize="16sp" />
 
@@ -114,6 +99,7 @@
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:background="@null"
+            android:fontFamily="@font/minecraft"
             android:inputType="text"
             android:textSize="16sp" />
     </LinearLayout>
@@ -122,12 +108,9 @@
         android:id="@+id/binary_sim_buttons_ll"
         android:layout_width="172dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="119dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="120dp"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/binary_sim_decimal_ll">
 
@@ -137,7 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="5"
             android:backgroundTint="#564839"
-            android:fontFamily="@font/pixelify_sans"
+            android:fontFamily="@font/minecraft"
             android:text="Convert"
             android:textColor="@color/white" />
 
@@ -154,9 +137,7 @@
         android:id="@+id/binary_sim_binary_ll"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="33dp"
         android:layout_marginTop="25dp"
-        android:layout_marginEnd="33dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -166,7 +147,7 @@
             android:id="@+id/binary_sim_binary_header_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/pixelify_sans_bold"
+            android:fontFamily="@font/minecraft"
             android:text="Binary:"
             android:textSize="16sp" />
 
@@ -181,7 +162,7 @@
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="0" />
 
@@ -190,7 +171,7 @@
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="0" />
 
@@ -199,7 +180,7 @@
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="0" />
 
@@ -208,7 +189,7 @@
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="0" />
 
@@ -217,7 +198,7 @@
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="0" />
 
@@ -226,7 +207,7 @@
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="0" />
 
@@ -235,7 +216,7 @@
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="0" />
 
@@ -244,11 +225,12 @@
                 android:layout_width="43dp"
                 android:layout_height="43dp"
                 android:layout_weight="1"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="0" />
         </LinearLayout>
 
     </LinearLayout>
-
+    <!-- Minecraft Font Source: https://www.dafont.com/minecraft.fonthttps://www.dafont.com/minecraft.font-->
 </androidx.constraintlayout.widget.ConstraintLayout>
+

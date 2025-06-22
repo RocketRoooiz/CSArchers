@@ -118,7 +118,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="Already Have an Account?"
                 android:textColor="#334767" />
@@ -131,7 +131,7 @@
             android:layout_height="75dp"
             android:layout_marginTop="10dp"
             android:backgroundTint="#334767"
-            android:fontFamily="@font/pixelify_sans"
+            android:fontFamily="@font/minecraft"
             android:text="submit"
             android:textColor="@color/white"
             android:textSize="16sp" />

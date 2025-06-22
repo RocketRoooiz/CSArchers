@@ -13,6 +13,18 @@ class SelectModeActivity : ComponentActivity() {
 
         viewBinding.selectModeBtnGame.setOnClickListener({
             val intent = Intent(this, TopicsActivity::class.java)
+            intent.putExtra("Mode_Key", "Game")
+            startActivity(intent)
+        })
+
+        viewBinding.selectModeBtnSim.setOnClickListener({
+            val intent = Intent(this, TopicsActivity::class.java)
+            intent.putExtra("Mode_Key", "Simulator")
+            startActivity(intent)
+        })
+
+        viewBinding.selectModeBtnLeaderboard.setOnClickListener({
+            val intent = Intent(this, LeaderboardActivity::class.java)
             startActivity(intent)
         })
     }
