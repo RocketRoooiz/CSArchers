@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/conversion_step_item_layout_ll"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@null"
+    android:orientation="horizontal">
+
+    <TextView
+        android:id="@+id/conversion_step_item_col1_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/minecraft"
+        android:text="Col 0"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/conversion_step_item_col2_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/minecraft"
+        android:text="Col 1"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/conversion_step_item_col3_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/minecraft"
+        android:text="Col 2"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/conversion_step_item_col4_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/minecraft"
+        android:text="Col 3"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/conversion_step_item_col5_tv"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:fontFamily="@font/minecraft"
+        android:text="Col 4"
+        android:textSize="14sp" />
+</LinearLayout>
