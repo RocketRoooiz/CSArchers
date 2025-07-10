@@ -159,7 +159,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:id="@+id/hp_text_Tv"
+                    android:id="@+id/gamescore_text_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -169,7 +169,7 @@
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/hp_value_Tv"
+                    android:id="@+id/gamescore_value_Tv"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="9"
