@@ -31,6 +31,21 @@
             app:layout_constraintWidth_percent=".7" />
 
 
+        <ImageView
+            android:id="@+id/player_hurt_IV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginBottom="32dp"
+            android:adjustViewBounds="true"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:src="@drawable/boom"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHeight_percent=".5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintWidth_percent=".7" />
+
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="0dp"
@@ -64,11 +79,25 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:adjustViewBounds="true"
-            app:layout_constraintHeight_percent=".4"
-            app:layout_constraintWidth_percent=".5"
             android:src="@drawable/character_tiger"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintHeight_percent=".4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".5" />
+
+        <ImageView
+            android:id="@+id/enemy_hurt_IV"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:adjustViewBounds="true"
+            android:scaleX=".5"
+            android:scaleY=".5"
+            android:src="@drawable/boom"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHeight_percent=".4"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent=".5" />
 
         <LinearLayout
             android:layout_width="0dp"
@@ -118,6 +147,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="10dp"
             android:layout_weight="1"
             android:orientation="horizontal">
 
@@ -133,7 +163,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/pixelify_sans"
+                    android:fontFamily="@font/minecraft"
                     android:text="Score:"
                     android:textColor="#564839"
                     android:textSize="20sp" />
@@ -143,8 +173,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="9"
-                    android:fontFamily="@font/pixelify_sans"
-                    android:text="100"
+                    android:fontFamily="@font/minecraft"
+                    android:text="0"
                     android:textColor="#564839"
                     android:textSize="20sp" />
 
@@ -162,7 +192,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:fontFamily="@font/pixelify_sans"
+                    android:fontFamily="@font/minecraft"
                     android:text="Time:"
                     android:textColor="#564839"
                     android:textSize="20sp" />
@@ -172,7 +202,9 @@
                     style="?android:attr/progressBarStyleHorizontal"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
-                    android:layout_weight="9" />
+                    android:layout_weight="9"
+                    android:max="100"
+                    android:progress="0" />
             </LinearLayout>
 
         </LinearLayout>
@@ -180,34 +212,33 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_weight="4"
+            android:layout_weight="3"
             android:orientation="horizontal">
 
             <LinearLayout
                 android:id="@+id/giventext_layout"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1.5"
+                android:layout_weight="1.8"
                 android:orientation="vertical">
 
                 <TextView
-                    android:id="@+id/numbersys1_Tv"
+                    android:id="@+id/frombase_Tv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:fontFamily="@font/pixelify_sans"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/minecraft"
                     android:gravity="center_vertical"
                     android:text="Decimal:"
                     android:textColor="#564839"
                     android:textSize="20sp" />
 
                 <TextView
-                    android:id="@+id/numbersys2_tv"
+                    android:id="@+id/tobase_tv"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:fontFamily="@font/pixelify_sans"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:fontFamily="@font/minecraft"
                     android:gravity="center_vertical"
                     android:text="Binary:"
                     android:textColor="#564839"
@@ -220,26 +251,27 @@
                 android:layout_height="match_parent"
                 android:layout_margin="5dp"
                 android:layout_weight="3"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:paddingRight="5dp">
 
                 <TextView
-                    android:id="@+id/given_Tv"
+                    android:id="@+id/frombasenum_Tv"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:fontFamily="@font/pixelify_sans"
+                    android:fontFamily="@font/minecraft"
                     android:gravity="center_vertical"
                     android:text="10101"
                     android:textColor="#564839"
                     android:textSize="20sp" />
 
                 <EditText
-                    android:id="@+id/answer_Et"
+                    android:id="@+id/tobasenum_Et"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:fontFamily="@font/pixelify_sans"
+                    android:fontFamily="@font/minecraft"
                     android:gravity="bottom"
                     android:inputType="text"
                     android:textColor="#564839"
@@ -262,10 +294,13 @@
             android:id="@+id/scratchpaper_Tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:fontFamily="@font/pixelify_sans"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="-10dp"
+            android:fontFamily="@font/minecraft"
             android:text="Scratch Paper:"
             android:textColor="#554739"
-            android:textSize="20sp" />
+            android:textSize="20sp"
+            android:visibility="gone" />
 
         <FrameLayout
             android:layout_width="match_parent"
