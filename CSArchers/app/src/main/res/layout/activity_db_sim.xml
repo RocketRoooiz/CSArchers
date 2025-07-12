@@ -170,149 +170,167 @@
                 android:background="#E2C19E"
                 android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit15_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
+                <LinearLayout
+                    android:id="@+id/activity_db_sim_byte1_ll"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit14_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit15_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit13_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit14_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit12_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit13_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit11_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit12_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit10_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit11_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit9_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit10_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit8_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit9_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit7_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit8_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit6_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                </LinearLayout>
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit5_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
+                <LinearLayout
+                    android:id="@+id/activity_db_sim_byte0_ll"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit4_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit7_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit3_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit6_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit2_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit5_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit1_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit4_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
 
-                <TextView
-                    android:id="@+id/activity_db_sim_bit0_tv"
-                    android:layout_width="43dp"
-                    android:layout_height="43dp"
-                    android:layout_weight="1"
-                    android:fontFamily="@font/minecraft"
-                    android:gravity="center"
-                    android:text="0" />
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit3_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit2_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit1_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
+
+                    <TextView
+                        android:id="@+id/activity_db_sim_bit0_tv"
+                        android:layout_width="43dp"
+                        android:layout_height="43dp"
+                        android:layout_weight="1"
+                        android:fontFamily="@font/minecraft"
+                        android:gravity="center"
+                        android:text="0" />
+                </LinearLayout>
+
             </LinearLayout>
         </LinearLayout>
 

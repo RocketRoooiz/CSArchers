@@ -4,10 +4,14 @@ import kotlin.math.pow
 class DecimalBinaryConverter {
     var current_input: String = ""
     var current_output: String = ""
-    private var signed_min: Long = 0
-    private var signed_max: Long = 0
-    private var unsigned_min: ULong = 0u
-    private var unsigned_max: ULong = 0u
+    var signed_min: Long = 0
+        private set // setter can be used inside the class.
+    var signed_max: Long = 0
+        private set // setter can be used inside the class.
+    var unsigned_min: ULong = 0u
+        private set // setter can be used inside the class.
+    var unsigned_max: ULong = 0u
+        private set // setter can be used inside the class.
 
     var isSigned = true
     var size: Size = Size._8BITS
