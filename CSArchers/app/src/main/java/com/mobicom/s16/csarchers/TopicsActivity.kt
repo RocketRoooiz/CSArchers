@@ -91,7 +91,7 @@ class TopicsActivity : ComponentActivity() {
         if(mode == "Simulator"){
             // arithmetic
             viewBinding.topicsBtnAdd.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, BinaryAddSubActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnMult.setOnClickListener {

@@ -60,7 +60,7 @@ class BinaryAdditionIn8BitsUnsigned {
             adderSubtractor.operate("001", "00000010")
         }
 
-        assertEquals(exception.message, "input1 length != 8")
+        assertEquals(exception.message, "input 1 length != 8")
     }
 
     @Test
@@ -69,7 +69,7 @@ class BinaryAdditionIn8BitsUnsigned {
             adderSubtractor.operate("00000011", "0000000100")
         }
 
-        assertEquals(exception.message, "input2 length != 8")
+        assertEquals(exception.message, "input 2 length != 8")
     }
 
     @Test
@@ -136,7 +136,7 @@ class BinaryAdditionIn8BitsSigned {
             adderSubtractor.operate("001", "11000010")
         }
 
-        assertEquals(exception.message, "input1 length != 8")
+        assertEquals(exception.message, "input 1 length != 8")
     }
 
     @Test
@@ -145,7 +145,7 @@ class BinaryAdditionIn8BitsSigned {
             adderSubtractor.operate("00000001", "1000011100")
         }
 
-        assertEquals(exception.message, "input2 length != 8")
+        assertEquals(exception.message, "input 2 length != 8")
     }
 
     @Test
@@ -199,7 +199,7 @@ class BinaryAdditionIn16BitsUnsigned {
             adderSubtractor.operate("00000000001", "0000000000000010")
         }
 
-        assertEquals(exception.message, "input1 length != 16")
+        assertEquals(exception.message, "input 1 length != 16")
     }
 
     @Test
@@ -208,7 +208,7 @@ class BinaryAdditionIn16BitsUnsigned {
             adderSubtractor.operate("0000000000000011", "00000001000000000")
         }
 
-        assertEquals(exception.message, "input2 length != 16")
+        assertEquals(exception.message, "input 2 length != 16")
     }
 
     @Test
@@ -275,7 +275,7 @@ class BinaryAdditionIn16BitsSigned {
             adderSubtractor.operate("00000000001", "0000000000000010")
         }
 
-        assertEquals(exception.message, "input1 length != 16")
+        assertEquals(exception.message, "input 1 length != 16")
     }
 
     @Test
@@ -284,7 +284,7 @@ class BinaryAdditionIn16BitsSigned {
             adderSubtractor.operate("0000000000000011", "00000001000000000")
         }
 
-        assertEquals(exception.message, "input2 length != 16")
+        assertEquals(exception.message, "input 2 length != 16")
     }
 
     @Test
@@ -345,7 +345,7 @@ class BinarySubtractionIn8BitsUnsigned {
             adderSubtractor.operate("001", "00000010")
         }
 
-        assertEquals(exception.message, "input1 length != 8")
+        assertEquals(exception.message, "input 1 length != 8")
     }
 
     @Test
@@ -354,7 +354,7 @@ class BinarySubtractionIn8BitsUnsigned {
             adderSubtractor.operate("00000011", "0000000100")
         }
 
-        assertEquals(exception.message, "input2 length != 8")
+        assertEquals(exception.message, "input 2 length != 8")
     }
 
     @Test
@@ -421,7 +421,7 @@ class BinarySubtractionIn8BitsSigned {
             adderSubtractor.operate("001", "11000010")
         }
 
-        assertEquals(exception.message, "input1 length != 8")
+        assertEquals(exception.message, "input 1 length != 8")
     }
 
     @Test
@@ -430,7 +430,7 @@ class BinarySubtractionIn8BitsSigned {
             adderSubtractor.operate("00000001", "1000011100")
         }
 
-        assertEquals(exception.message, "input2 length != 8")
+        assertEquals(exception.message, "input 2 length != 8")
     }
 
     @Test
@@ -484,7 +484,7 @@ class BinarySubtractionIn16BitsUnsigned {
             adderSubtractor.operate("000011", "0000001000000011")
         }
 
-        assertEquals(exception.message, "input1 length != 16")
+        assertEquals(exception.message, "input 1 length != 16")
     }
 
     @Test
@@ -493,7 +493,7 @@ class BinarySubtractionIn16BitsUnsigned {
             adderSubtractor.operate("0011010010000011", "00000111111001111")
         }
 
-        assertEquals(exception.message, "input2 length != 16")
+        assertEquals(exception.message, "input 2 length != 16")
     }
 
     @Test
@@ -560,7 +560,7 @@ class BinarySubtractionIn16BitsSigned {
             adderSubtractor.operate("000011", "0000001000000011")
         }
 
-        assertEquals(exception.message, "input1 length != 16")
+        assertEquals(exception.message, "input 1 length != 16")
     }
 
     @Test
@@ -569,7 +569,7 @@ class BinarySubtractionIn16BitsSigned {
             adderSubtractor.operate("0011010010000011", "00000111111001111")
         }
 
-        assertEquals(exception.message, "input2 length != 16")
+        assertEquals(exception.message, "input 2 length != 16")
     }
 
     @Test

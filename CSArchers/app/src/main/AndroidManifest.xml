@@ -60,6 +60,12 @@
             android:theme="@style/Theme.CSArchers">
         </activity>
         <activity
+            android:name=".BinaryAddSubActivity"
+            android:exported="true"
+            android:label="CSArchers"
+            android:theme="@style/Theme.CSArchers">
+        </activity>
+        <activity
             android:name=".LeaderboardActivity"
             android:exported="true"
             android:label="CSArchers"

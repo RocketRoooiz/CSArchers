@@ -20,9 +20,13 @@ class BinaryAdderSubtractor {
     private var current_output: String = ""
 
     var signed_min: Long = 0
+        private set // setter can be used inside the class.
     var signed_max: Long = 0
+        private set // setter can be used inside the class.
     var unsigned_min: ULong = 0u
+        private set // setter can be used inside the class.
     var unsigned_max: ULong = 0u
+        private set // setter can be used inside the class.
 
     var operation: OpType = OpType.ADD
     var isSigned = true
@@ -64,15 +68,24 @@ class BinaryAdderSubtractor {
 
         // Validate binary string
         require(input1.matches(Regex("[01]+"))) { "Invalid binary string for input 1" }
-        require(input1.length == size.value) { "input1 length != ${size.value}" }
+        require(input1.length == size.value) { "input 1 length != ${size.value}" }
         require(input2.matches(Regex("[01]+"))) { "Invalid binary string for input 2" }
-        require(input2.length == size.value) { "input2 length != ${size.value}" }
+        require(input2.length == size.value) { "input 2 length != ${size.value}" }
 
         try {
             if (isSigned) { // is signed
                 // Handle string inputs
-                val signed_decimal_input1 = convertToSignedDecimal(input1)
-                val signed_decimal_input2 = convertToSignedDecimal(input2)
+                val signed_decimal_input1 =  try {
+                    convertToSignedDecimal(input1)
+                } catch (e: NumberFormatException) {
+                    throw IllegalArgumentException("Invalid binary format for input 1")
+                }
+
+                val signed_decimal_input2 = try {
+                    convertToSignedDecimal(input2)
+                } catch (e: NumberFormatException) {
+                    throw IllegalArgumentException("Invalid binary format for input 2")
+                }
 
                 var signed_decimal_output = when (operation) {
                     OpType.ADD -> {
@@ -127,8 +140,17 @@ class BinaryAdderSubtractor {
                 current_output = current_output.slice((current_output.length - size.value)..(current_output.length - 1))
             } else { // is unsigned
                 // Handle string inputs
-                val unsigned_decimal_input1 = input1.toULong(2)
-                val unsigned_decimal_input2 = input2.toULong(2)
+                val unsigned_decimal_input1 =  try {
+                    input1.toULong(2)
+                } catch (e: NumberFormatException) {
+                    throw IllegalArgumentException("Invalid binary format for input 1")
+                }
+
+                val unsigned_decimal_input2 = try {
+                    input2.toULong(2)
+                } catch (e: NumberFormatException) {
+                    throw IllegalArgumentException("Invalid binary format for input 2")
+                }
 
                 // Perform operation with the converted inputs.
                 val unsigned_decimal_output = when (operation) {
@@ -153,7 +175,7 @@ class BinaryAdderSubtractor {
                 current_output = current_output.slice((current_output.length - size.value)..(current_output.length - 1))
             }
         } catch (e: NumberFormatException) {
-            throw IllegalArgumentException("Invalid binary format")
+            throw e
         }
 
         return current_output
