@@ -1,4 +1,4 @@
-package com.mobicom.s16.csarchers
+package com.mobicom.s16.csarchers.decimal_binary_sim
 
 import android.os.Bundle
 import android.view.View
@@ -6,9 +6,11 @@ import android.widget.TextView
 import androidx.activity.ComponentActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
+import com.mobicom.s16.csarchers.R
+import com.mobicom.s16.csarchers.Size
 import com.mobicom.s16.csarchers.databinding.ActivityDbSimBinding
 
-class SimulationActivity : ComponentActivity() {
+class DecimalBinarySimActivity : ComponentActivity() {
     companion object {
         const val BACKGROUND_TINT_COLOUR = "#E6C5A0"
     }

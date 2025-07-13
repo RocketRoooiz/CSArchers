@@ -1,4 +1,4 @@
-package com.mobicom.s16.csarchers
+package com.mobicom.s16.csarchers.binary_add_sub_sim
 
 import android.os.Bundle
 import android.view.View
@@ -8,9 +8,11 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.isGone
+import com.mobicom.s16.csarchers.R
+import com.mobicom.s16.csarchers.Size
 import com.mobicom.s16.csarchers.databinding.ActivityBasSimBinding
 
-class BinaryAddSubActivity: ComponentActivity() {
+class BinaryAddSubSimActivity: ComponentActivity() {
     private lateinit var viewBinding: ActivityBasSimBinding
 
     private var adder_subractor = BinaryAdderSubtractor()
@@ -40,7 +42,7 @@ class BinaryAddSubActivity: ComponentActivity() {
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 val selectedItem = spinner_items[position]
                 // Show a toast message with the selected item's name
-                Toast.makeText(this@BinaryAddSubActivity, "Selected operation: ${selectedItem.itemName}", Toast.LENGTH_SHORT).show()
+                Toast.makeText(this@BinaryAddSubSimActivity, "Selected operation: ${selectedItem.itemName}", Toast.LENGTH_SHORT).show()
                 operation = selectedItem.op
                 updateStateForOpType()
                 updateStateForOverflow()

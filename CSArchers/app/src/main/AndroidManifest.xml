@@ -54,13 +54,13 @@
             android:theme="@style/Theme.CSArchers">
         </activity>
         <activity
-            android:name=".SimulationActivity"
+            android:name=".decimal_binary_sim.DecimalBinarySimActivity"
             android:exported="true"
             android:label="CSArchers"
             android:theme="@style/Theme.CSArchers">
         </activity>
         <activity
-            android:name=".BinaryAddSubActivity"
+            android:name=".binary_add_sub_sim.BinaryAddSubSimActivity"
             android:exported="true"
             android:label="CSArchers"
             android:theme="@style/Theme.CSArchers">

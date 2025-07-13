@@ -3,7 +3,9 @@ package com.mobicom.s16.csarchers
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
+import com.mobicom.s16.csarchers.binary_add_sub_sim.BinaryAddSubSimActivity
 import com.mobicom.s16.csarchers.databinding.ActivityTopicsBinding
+import com.mobicom.s16.csarchers.decimal_binary_sim.DecimalBinarySimActivity
 
 class TopicsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -91,69 +93,69 @@ class TopicsActivity : ComponentActivity() {
         if(mode == "Simulator"){
             // arithmetic
             viewBinding.topicsBtnAdd.setOnClickListener {
-                val intent = Intent(this, BinaryAddSubActivity::class.java)
+                val intent = Intent(this, BinaryAddSubSimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnMult.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnSub.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnDiv.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
 
             // conversion
             viewBinding.topicsBtnBinDec.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnBinHex.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnBinOct.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnDecOct.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
 
             // IEEE
             viewBinding.topicsBtnFlt32.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnDec32.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnFlt64.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnDec64.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
 
             // UTF
             viewBinding.topicsBtnUtf8.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnUtf16.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnUtf32.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, DecimalBinarySimActivity::class.java)
                 startActivity(intent)
             }
         }

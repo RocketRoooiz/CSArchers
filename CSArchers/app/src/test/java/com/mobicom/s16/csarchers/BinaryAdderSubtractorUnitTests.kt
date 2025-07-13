@@ -1,6 +1,7 @@
 package com.mobicom.s16.csarchers
 
-import com.mobicom.s16.csarchers.BinaryToDecimalConversionIn16BitsUnsigned.Companion.converter
+import com.mobicom.s16.csarchers.binary_add_sub_sim.BinaryAdderSubtractor
+import com.mobicom.s16.csarchers.binary_add_sub_sim.OpType
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThrows
 import org.junit.BeforeClass

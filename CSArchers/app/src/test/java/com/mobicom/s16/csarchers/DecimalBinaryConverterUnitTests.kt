@@ -1,5 +1,6 @@
 package com.mobicom.s16.csarchers
 
+import com.mobicom.s16.csarchers.decimal_binary_sim.DecimalBinaryConverter
 import org.junit.Assert.assertEquals
 import org.junit.Assert.assertThrows
 import org.junit.BeforeClass
