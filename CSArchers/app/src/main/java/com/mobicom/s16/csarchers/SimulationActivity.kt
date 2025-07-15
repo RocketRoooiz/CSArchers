@@ -5,11 +5,12 @@ import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
-import com.mobicom.s16.csarchers.databinding.ActivityBinarySimBinding
+//import com.mobicom.s16.csarchers.databinding.ActivityBinarySimBinding
 
 class SimulationActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        /*
         val viewBinding : ActivityBinarySimBinding = ActivityBinarySimBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
         var exchangeclicked = true
@@ -72,6 +73,8 @@ class SimulationActivity : ComponentActivity() {
         viewBinding.binarySimConvertBtn.setOnClickListener(View.OnClickListener {
             viewBinding.solutionTextTv.text = "101 = 2^2 + 2^0\n      = 4 + 1\n      = 5"
         })
+
+         */
     }
 
 }

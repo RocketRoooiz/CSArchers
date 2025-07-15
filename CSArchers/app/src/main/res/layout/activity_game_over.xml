@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="400dp"
+    android:layout_height="200dp"
+    android:background="@drawable/empty_board"
+    android:padding="30dp">
+
+    <TextView
+        android:id="@+id/gameOver_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/minecraft"
+        android:text="Game Over"
+        android:textColor="#554739"
+        android:textSize="34sp" />
+
+    <TextView
+        android:id="@+id/score_Tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/gameOver_Tv"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:fontFamily="@font/minecraft"
+        android:text="Score: 0"
+        android:textColor="#554739"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/exit_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/score_Tv"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#564839"
+        android:fontFamily="@font/minecraft"
+        android:text="Exit"
+        android:textColor="#FFFFFF" />
+
+    <Button
+        android:id="@+id/retry_Btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/exit_Btn"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="20dp"
+        android:backgroundTint="#564839"
+        android:fontFamily="@font/minecraft"
+        android:text="Retry"
+        android:textColor="#FFFFFF" />
+</RelativeLayout>
