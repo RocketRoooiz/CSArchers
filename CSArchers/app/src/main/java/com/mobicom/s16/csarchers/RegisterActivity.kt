@@ -8,6 +8,8 @@ import android.widget.Toast
 import androidx.activity.ComponentActivity
 import com.google.android.gms.tasks.Tasks
 import com.google.firebase.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.auth
 import com.google.firebase.firestore.QuerySnapshot
 import com.google.firebase.firestore.firestore
 import com.mobicom.s16.csarchers.databinding.ActivityRegisterBinding
@@ -21,17 +23,17 @@ class RegisterActivity : ComponentActivity() {
     private companion object {
         private const val TAG = "LOG" // Or any descriptive name
     }
+    private lateinit var auth: FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewBinding : ActivityRegisterBinding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
         val db = Firebase.firestore
+        auth = Firebase.auth
 
 
-        val counterRef = db.collection("counters").document("accountCounter")
-        val usersRef = db.collection("users")
-
+      
         viewBinding.registerBtnSubmit.setOnClickListener {
             val username = viewBinding.registerEtUsername.text.toString().trim()
             val email = viewBinding.registerEtEmail.text.toString().trim()
@@ -43,6 +45,7 @@ class RegisterActivity : ComponentActivity() {
                 return@setOnClickListener
             }
 
+            // Check if username or email already exists in Firestore
             val usernameTask = db.collection("users").whereEqualTo("username", username).get()
             val emailTask = db.collection("users").whereEqualTo("email", email).get()
 
@@ -61,29 +64,34 @@ class RegisterActivity : ComponentActivity() {
                         return@addOnSuccessListener
                     }
 
-                    db.runTransaction { transaction ->
-                        val snapshot = transaction.get(counterRef)
-                        val lastId = snapshot.getLong("lastAccountId") ?: 0
-                        val newId = lastId + 1
+                    // Create user with Firebase Authentication
+                    auth.createUserWithEmailAndPassword(email, plainPassword)
+                        .addOnCompleteListener(this) { task ->
+                            if (task.isSuccessful) {
+                                val firebaseUser = auth.currentUser
+                                val uid = firebaseUser?.uid ?: return@addOnCompleteListener
 
-                        transaction.update(counterRef, "lastAccountId", newId)
+                                // Store additional user info in Firestore
+                                val user = hashMapOf(
+                                    "email" to email,
+                                    "username" to username
+                                    // No need to store password at all
+                                )
 
-                        val hashedPassword = BCrypt.hashpw(plainPassword, BCrypt.gensalt())
-                        val user = hashMapOf(
-                            "email" to email,
-                            "username" to username,
-                            "password" to hashedPassword
-                        )
-
-                        transaction.set(usersRef.document(newId.toString()), user)
-                        newId
-                    }.addOnSuccessListener { newId ->
-                        Log.d(TAG, "Account created with ID: $newId")
-                        startActivity(Intent(this, SelectModeActivity::class.java))
-                    }.addOnFailureListener { e ->
-                        Log.w(TAG, "Failed to create account", e)
-                        Toast.makeText(this, "Account creation failed: ${e.message}", Toast.LENGTH_LONG).show()
-                    }
+                                db.collection("users").document(uid).set(user)
+                                    .addOnSuccessListener {
+                                        Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show()
+                                        startActivity(Intent(this, SelectModeActivity::class.java))
+                                        finish()
+                                    }
+                                    .addOnFailureListener { e ->
+                                        Log.w(TAG, "Failed to store user data", e)
+                                        Toast.makeText(this, "Failed to save user data: ${e.message}", Toast.LENGTH_LONG).show()
+                                    }
+                            } else {
+                                Toast.makeText(this, "Authentication failed: ${task.exception?.message}", Toast.LENGTH_LONG).show()
+                            }
+                        }
                 }
                 .addOnFailureListener { e ->
                     Toast.makeText(this, "Error checking credentials: ${e.message}", Toast.LENGTH_LONG).show()
@@ -93,18 +101,19 @@ class RegisterActivity : ComponentActivity() {
 
 
 
-
-
-
-
-
-
-
-
         viewBinding.registerTvLogin.setOnClickListener ({
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         })
 
+    }
+
+    public override fun onStart() {
+        super.onStart()
+        // Check if user is signed in (non-null) and update UI accordingly.
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            startActivity(Intent(this, SelectModeActivity::class.java))
+        }
     }
 }
