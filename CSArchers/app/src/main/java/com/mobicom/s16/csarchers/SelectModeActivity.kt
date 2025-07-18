@@ -12,6 +12,8 @@ class SelectModeActivity : ComponentActivity() {
         val viewBinding : ActivitySelectModeBinding = ActivitySelectModeBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
+        viewBinding.selectModeTvWelcome.text = intent.getStringExtra(IntentKeys.USER_NAME_KEY.name
+        )
         viewBinding.selectModeBtnGame.setOnClickListener({
             val intent = Intent(this, TopicsActivity::class.java)
             intent.putExtra("Mode_Key", "Game")
