@@ -33,7 +33,7 @@ class RegisterActivity : ComponentActivity() {
         auth = Firebase.auth
 
 
-      
+
         viewBinding.registerBtnSubmit.setOnClickListener {
             val username = viewBinding.registerEtUsername.text.toString().trim()
             val email = viewBinding.registerEtEmail.text.toString().trim()
@@ -81,7 +81,9 @@ class RegisterActivity : ComponentActivity() {
                                 db.collection("users").document(uid).set(user)
                                     .addOnSuccessListener {
                                         Toast.makeText(this, "Account created successfully!", Toast.LENGTH_SHORT).show()
-                                        startActivity(Intent(this, SelectModeActivity::class.java))
+                                        val i = Intent(this, SelectModeActivity::class.java)
+                                        i.putExtra(IntentKeys.USER_NAME_KEY.name, username)
+                                        startActivity(i)
                                         finish()
                                     }
                                     .addOnFailureListener { e ->
@@ -99,8 +101,6 @@ class RegisterActivity : ComponentActivity() {
         }
 
 
-
-
         viewBinding.registerTvLogin.setOnClickListener ({
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
@@ -108,12 +108,5 @@ class RegisterActivity : ComponentActivity() {
 
     }
 
-    public override fun onStart() {
-        super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            startActivity(Intent(this, SelectModeActivity::class.java))
-        }
-    }
+
 }
