@@ -1,8 +1,12 @@
 package com.mobicom.s16.csarchers
 
 import android.content.Intent
+import android.nfc.Tag
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
+import com.google.firebase.Firebase
+import com.google.firebase.firestore.firestore
 import com.mobicom.s16.csarchers.databinding.ActivityMainBinding
 
 
@@ -12,6 +16,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         val viewBinding : ActivityMainBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
+
 
 
             val intent = Intent(this, LoginActivity::class.java)

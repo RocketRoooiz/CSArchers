@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "520266304779",
+    "project_id": "csarchers",
+    "storage_bucket": "csarchers.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:520266304779:android:0c4f4b9ae5959eef22260e",
+        "android_client_info": {
+          "package_name": "com.mobicom.s16.csarchers"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDYG6SsAMGzJWWUsZjVe0qQ5ypJi77MM4U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
