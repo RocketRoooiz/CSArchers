@@ -6,120 +6,108 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.os.Handler
 import android.os.Looper
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import com.mobicom.s16.csarchers.databinding.ActivityGameBinding
+import java.nio.ByteBuffer
+import java.nio.ByteOrder
+import java.nio.charset.Charset
 import java.util.Locale
 
-val baseOptions = listOf("binary", "octal", "decimal", "hex")
-val baseToRadix = mapOf("binary" to 2, "octal" to 8, "decimal" to 10, "hex" to 16)
+val directionOption = listOf("unicodeToUtf", "utfToUnicode+8")
+val UTFOptions = listOf("utf+8", "utf+16", "utf+32")
 
-data class ConversionProblem(
+data class UTFConversionProblem(
+    val direction: String, // "unicodeToUtf" or "utfToUnicode"
     val fromBaseName: String,
     val toBaseName: String,
-    val numberInFromBase: String,
-    val decimalValue: Int
+    val displayValue: String, // What’s shown to the user
+    val correctAnswer: String // What they must type
 )
 
-fun String.capitalized(): String {
-    return this.replaceFirstChar {
-        if (it.isLowerCase())
-            it.titlecase(Locale.getDefault())
-        else it.toString()
-    }
-}
-
-fun generateRandomConversionProblem(): ConversionProblem {
-    val fromBaseName = baseOptions.random()
-    var toBaseName: String
-
-    do {
-        toBaseName = baseOptions.random()
-    } while (toBaseName == fromBaseName)
-
-    val randomDecimalValue = (1..255).random() // range can be adjusted
-    val numberInFromBase = Integer.toString(randomDecimalValue, baseToRadix[fromBaseName]!!)
-
-    return ConversionProblem(
-        fromBaseName,
-        toBaseName,
-        numberInFromBase,
-        randomDecimalValue
+fun getRandomUnicodeCodePoint(): Int {
+    val validRanges = listOf(
+        0x0020..0x007E,
+        0x00A0..0x00FF,
+        0x0370..0x03FF,
+        0x0400..0x04FF,
+        0x1F600..0x1F64F
     )
+    val range = validRanges.random()
+    return range.random()
 }
 
-fun convertNumber(input: String, fromBase: Int, toBase: Int): String {
-    return try {
-        val decimalValue = input.toInt(fromBase)
-        decimalValue.toString(toBase)
-    } catch (e: NumberFormatException) {
-        "Invalid input for base $fromBase"
+fun generateRandomUTFConversionProblem(): UTFConversionProblem {
+    val direction = directionOption.random()
+    val fromBaseName: String
+    val toBaseName: String
+
+    val codePoint = getRandomUnicodeCodePoint()
+    val charStr = String(Character.toChars(codePoint))
+
+    // Map to valid Java charset names with big-endian explicitly
+    fun getCharsetName(option: String): String = when (option.lowercase()) {
+        "utf+8" -> "UTF-8"
+        "utf+16" -> "UTF-16BE"
+        "utf+32" -> "UTF-32BE"
+        else -> throw IllegalArgumentException("Unsupported UTF type: $option")
+    }
+
+    return if (direction == "unicodeToUtf") {
+        fromBaseName = "unicode"
+        toBaseName = UTFOptions.random()
+
+        val charsetName = getCharsetName(toBaseName)
+        val encodedBytes = charStr.toByteArray(Charset.forName(charsetName))
+
+        UTFConversionProblem(
+            direction = direction,
+            fromBaseName = fromBaseName,
+            toBaseName = toBaseName,
+            displayValue = "U+${codePoint.toString(16).uppercase()}",
+            correctAnswer = encodedBytes.joinToString("") {
+                it.toUByte().toString(16).uppercase().padStart(2, '0')
+            }
+        )
+    } else {
+        fromBaseName = UTFOptions.random()
+        toBaseName = "unicode U+"
+
+        val charsetName = getCharsetName(fromBaseName)
+        val encodedBytes = charStr.toByteArray(Charset.forName(charsetName))
+
+        UTFConversionProblem(
+            direction = direction,
+            fromBaseName = fromBaseName,
+            toBaseName = toBaseName,
+            displayValue = encodedBytes.joinToString("") {
+                it.toUByte().toString(16).uppercase().padStart(2, '0')
+            },
+            correctAnswer = "${codePoint.toString(16).uppercase()}"
+        )
     }
 }
 
-fun View.hopAnimation() {
-    this.animate().cancel()
-    this.translationY = 0f
 
-    this.animate()
-        .translationYBy(-50f) // move up 50 pixels
-        .setDuration(150)
-        .withEndAction {
-            this.animate()
-                .translationYBy(50f) // move back down
-                .setDuration(150)
-                .start()
-        }
-        .start()
-}
-
-fun View.wiggleAnimation() {
-    val distance = 20f // pixels left/right
-
-    this.animate().cancel()
-    this.translationX = 0f
-
-    this.animate()
-        .translationXBy(-distance)
-        .setDuration(100)
-        .withEndAction {
-            this.animate()
-                .translationXBy(2 * distance)
-                .setDuration(100)
-                .withEndAction {
-                    this.animate()
-                        .translationXBy(-distance)
-                        .setDuration(100)
-                        .start()
-                }
-                .start()
-        }
-        .start()
-}
-
-fun showExplosionForMoment(explosionView: ImageView, duration: Long = 300L) {
-    explosionView.visibility = View.VISIBLE
-
-    Handler(Looper.getMainLooper()).postDelayed({
-        explosionView.visibility = View.GONE
-    }, duration)
-}
-
-class GameActivity : ComponentActivity() {
+class GameActivityUTF : ComponentActivity() {
     private lateinit var viewBinding : ActivityGameBinding
+    private lateinit var drawingView: DrawingView
+
     private var score = 0
     private var enemyHp = 3
     private var playerHp = 3
     private var totalTime = 60_000L
     private var interval = 100L
     private lateinit var timer: CountDownTimer
-    private var currentProblem: ConversionProblem? = null
+    private var currentProblem: UTFConversionProblem? = null
     private lateinit var soundPool: SoundPool
     private var explosionSoundId: Int = 0
-    private lateinit var drawingView: DrawingView
+
+    private var isTiger = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -134,18 +122,11 @@ class GameActivity : ComponentActivity() {
         explosionSoundId = soundPool.load(this, R.raw.attack_sfx, 1)
 
 
-
         viewBinding.submitBtn.setOnClickListener {
             val userInput = viewBinding.tobasenumEt.text.toString()
             val problem = currentProblem!!
 
-            val correctAnswer = convertNumber(
-                problem.numberInFromBase,
-                baseToRadix[problem.fromBaseName]!!,
-                baseToRadix[problem.toBaseName]!!
-            )
-
-            if (userInput.lowercase() == correctAnswer.lowercase()) {
+            if (userInput.lowercase() == problem.correctAnswer.lowercase()) {
                 viewBinding.playerIv.hopAnimation()
                 viewBinding.enemyIv.wiggleAnimation()
                 showExplosionForMoment(viewBinding.enemyHurtIV)
@@ -158,7 +139,27 @@ class GameActivity : ComponentActivity() {
                 if (enemyHp <= 0) {
                     enemyHp = 3
                     viewBinding.enemyHealthPb.progress = enemyHp
-                    // Optional: change enemy sprite here
+
+                    viewBinding.enemyIv.animate()
+                        .alpha(0f)
+                        .setDuration(300)
+                        .withEndAction {
+                            // Switch the image once fade-out is done
+                            if (isTiger) {
+                                viewBinding.enemyIv.setImageResource(R.drawable.character_robot)
+                                viewBinding.enemyCharNameTv.text = "Robot"
+                            } else {
+                                viewBinding.enemyIv.setImageResource(R.drawable.character_tiger)
+                                viewBinding.enemyCharNameTv.text = "Tiger"
+                            }
+                            isTiger = !isTiger
+
+                            viewBinding.enemyIv.animate()
+                                .alpha(1f)
+                                .setDuration(300)
+                                .start()
+                        }
+                        .start()
                 }
                 updateProblem(viewBinding)
                 resetTimer(viewBinding)
@@ -192,10 +193,11 @@ class GameActivity : ComponentActivity() {
     }
 
     private fun updateProblem(viewBinding: ActivityGameBinding) {
-        currentProblem = generateRandomConversionProblem()
+        currentProblem = generateRandomUTFConversionProblem()
         val problem = currentProblem!!
+        Log.d("UTF_CONVERSION", "Correct answer: ${problem.correctAnswer}")
         viewBinding.frombaseTv.setText(problem.fromBaseName.capitalized()+":")
-        viewBinding.frombasenumTv.setText(problem.numberInFromBase.uppercase())
+        viewBinding.frombasenumTv.setText(problem.displayValue.uppercase())
         viewBinding.tobaseTv.setText(problem.toBaseName.capitalized()+":")
         viewBinding.tobasenumEt.text.clear()
         drawingView.clearDrawing()

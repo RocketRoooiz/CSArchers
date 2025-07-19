@@ -23,22 +23,26 @@ class TopicsActivity : ComponentActivity() {
         if(mode == "Game"){
             // arithmetic
             viewBinding.intArithmeticBtn.setOnClickListener {
-
+                val intent = Intent(this, GameActivityIntArithmetic::class.java)
+                startActivity(intent)
             }
 
             // conversion
             viewBinding.numSysBtn.setOnClickListener {
-
+                val intent = Intent(this, GameActivityNumSys::class.java)
+                startActivity(intent)
             }
 
             // IEEE
             viewBinding.ieeeBtn.setOnClickListener {
-
+                val intent = Intent(this, GameActivityIEEE::class.java)
+                startActivity(intent)
             }
 
             // UTF
             viewBinding.utfBtn.setOnClickListener {
-
+                val intent = Intent(this, GameActivityUTF::class.java)
+                startActivity(intent)
             }
         }
 
