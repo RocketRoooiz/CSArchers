@@ -31,17 +31,17 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/login_tv_username"
+                android:id="@+id/login_tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixelify_sans"
-                android:text="Username:"
+                android:text="Email: "
                 android:textColor="#334767"
                 android:textSize="16sp"
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/login_et_username"
+                android:id="@+id/login_et_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#334767"
@@ -58,7 +58,7 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/register_tv_password"
+                android:id="@+id/login_tv_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/pixelify_sans"
@@ -68,7 +68,7 @@
                 android:textStyle="bold" />
 
             <EditText
-                android:id="@+id/register_et_password"
+                android:id="@+id/login_et_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#334767"
