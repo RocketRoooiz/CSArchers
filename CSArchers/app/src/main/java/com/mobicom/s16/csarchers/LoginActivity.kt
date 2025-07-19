@@ -14,15 +14,14 @@ import com.mobicom.s16.csarchers.databinding.ActivityLoginBinding
 class LoginActivity : ComponentActivity() {
 
     private lateinit var auth: FirebaseAuth
-    private var username = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewBinding: ActivityLoginBinding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
-        val db = Firebase.firestore
-
         auth = Firebase.auth
+        val mydbHelper = MyDbHelper(this)
 
         viewBinding.loginBtnSubmit.setOnClickListener {
             val email = viewBinding.loginEtEmail.text.toString().trim()
@@ -33,52 +32,7 @@ class LoginActivity : ComponentActivity() {
                 return@setOnClickListener
             }
 
-            auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener { task ->
-                    if (task.isSuccessful) {
-                        val uid = auth.currentUser?.uid
-                        if (uid != null) {
-                            // Fetch the username from Firestore using UID
-                            db.collection("users").document(uid).get()
-                                .addOnSuccessListener { document ->
-                                    if (document != null && document.exists()) {
-                                        username = document.getString("username") ?: "Unknown"
-                                        Toast.makeText(
-                                            this,
-                                            "Login successful!",
-                                            Toast.LENGTH_SHORT
-                                        ).show()
-
-                                        val intent = Intent(this, SelectModeActivity::class.java)
-                                        intent.putExtra(
-                                            IntentKeys.USER_NAME_KEY.name,
-                                            username
-                                        ) // Pass the username
-                                        startActivity(intent)
-                                        finish()
-                                    } else {
-                                        Toast.makeText(
-                                            this,
-                                            "User data not found.",
-                                            Toast.LENGTH_LONG
-                                        ).show()
-                                    }
-                                }
-                                .addOnFailureListener { e ->
-                                    Toast.makeText(
-                                        this,
-                                        "Failed to load user data: ${e.message}",
-                                        Toast.LENGTH_LONG
-                                    ).show()
-                                }
-                        }
-                    } else {
-                        val message = task.exception?.message ?: "Login failed"
-                        Toast.makeText(this, message, Toast.LENGTH_LONG).show()
-                    }
-                }
-
-
+            mydbHelper.loginUser(email, password)
 
         }
         viewBinding.loginTvCreate.setOnClickListener {
@@ -90,8 +44,10 @@ class LoginActivity : ComponentActivity() {
         super.onStart()
         // Check if user is signed in (non-null) and update UI accordingly.
         val currentUser = auth.currentUser
+
         if (currentUser != null) {
             val db = Firebase.firestore
+
             db.collection("users").document(currentUser.uid).get()
                 .addOnSuccessListener { document ->
                     if (document != null && document.exists()) {
