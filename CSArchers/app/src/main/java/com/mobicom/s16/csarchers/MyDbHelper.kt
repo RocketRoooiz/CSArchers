@@ -55,7 +55,9 @@ class MyDbHelper(private val context: Context) {
 
                             val user = hashMapOf(
                                 "email" to email,
-                                "username" to username
+                                "username" to username,
+                                "weeklyScore" to 0,
+                                "totalScore" to 0
                                 // No need to store password at all
                             )
 
@@ -123,5 +125,27 @@ class MyDbHelper(private val context: Context) {
                 }
             }
     }
+
+    fun getUsers(callback: (ArrayList<User>) -> Unit) {
+        val userList = ArrayList<User>()
+
+        db.collection("users")
+            .get()
+            .addOnSuccessListener { result ->
+                for (document in result) {
+                    val user = document.toObject(User::class.java)
+                    userList.add(user)
+                }
+                Log.d("Users", "Fetched ${userList.size} users")
+                callback(userList) // Return the list via callback
+            }
+            .addOnFailureListener { exception ->
+                Log.w("Users", "Error getting users: ", exception)
+                callback(ArrayList()) // Return empty list on failure
+            }
+    }
+
+
+
 
 }

@@ -47,7 +47,6 @@ class LoginActivity : ComponentActivity() {
 
         if (currentUser != null) {
             val db = Firebase.firestore
-
             db.collection("users").document(currentUser.uid).get()
                 .addOnSuccessListener { document ->
                     if (document != null && document.exists()) {
