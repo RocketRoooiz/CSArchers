@@ -59,20 +59,20 @@ class TopicsActivity : ComponentActivity() {
 
             // IEEE
             viewBinding.topicsBtnFlt32.setOnClickListener {
-                //val intent = Intent(this, GameActivity::class.java)
-                //startActivity(intent)
+                val intent = Intent(this, GameActivityIEEE::class.java)
+                startActivity(intent)
             }
             viewBinding.topicsBtnDec32.setOnClickListener {
-                //val intent = Intent(this, GameActivity::class.java)
-                //startActivity(intent)
+                val intent = Intent(this, GameActivityIEEE::class.java)
+                startActivity(intent)
             }
             viewBinding.topicsBtnFlt64.setOnClickListener {
-                //val intent = Intent(this, GameActivity::class.java)
-                //startActivity(intent)
+                val intent = Intent(this, GameActivityIEEE::class.java)
+                startActivity(intent)
             }
             viewBinding.topicsBtnDec64.setOnClickListener {
-                //val intent = Intent(this, GameActivity::class.java)
-                //startActivity(intent)
+                val intent = Intent(this, GameActivityIEEE::class.java)
+                startActivity(intent)
             }
 
             // UTF
