@@ -66,6 +66,12 @@
             android:theme="@style/Theme.CSArchers">
         </activity>
         <activity
+            android:name=".GameActivityIEEE"
+            android:exported="true"
+            android:label="CSArchers"
+            android:theme="@style/Theme.CSArchers">
+        </activity>
+        <activity
             android:name=".decimal_binary_sim.DecimalBinarySimActivity"
             android:exported="true"
             android:label="CSArchers"
@@ -85,6 +91,12 @@
         </activity>
         <activity
             android:name=".multiplier_sim.BinaryMultiplierSimActivity"
+            android:exported="true"
+            android:label="CSArchers"
+            android:theme="@style/Theme.CSArchers">
+        </activity>
+        <activity
+            android:name=".SimulationActivity"
             android:exported="true"
             android:label="CSArchers"
             android:theme="@style/Theme.CSArchers">

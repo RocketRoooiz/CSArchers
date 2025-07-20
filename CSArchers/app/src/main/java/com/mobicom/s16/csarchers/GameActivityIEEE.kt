@@ -13,97 +13,81 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import com.mobicom.s16.csarchers.databinding.ActivityGameBinding
+import kotlin.random.Random
+import java.math.BigDecimal
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
-import java.nio.charset.Charset
 import java.util.Locale
 
-val directionOption = listOf("unicodeToUtf", "utfToUnicode")
-val UTFOptions = listOf("utf+8", "utf+16", "utf+32")
+val ieeeFormats = listOf("single", "double", "dec32", "dec64")
 
-data class UTFConversionProblem(
-    val direction: String, // "unicodeToUtf" or "utfToUnicode"
-    val fromBaseName: String,
-    val toBaseName: String,
-    val displayValue: String, // What’s shown to the user
-    val correctAnswer: String // What they must type
+data class IEEEConversionProblem(
+    val format: String,
+    val displayValue: String,  // e.g., "Number: 4"
+    val correctAnswer: String  // e.g., "40800000"
 )
 
-fun getRandomUnicodeCodePoint(): Int {
-    val validRanges = listOf(
-        0x0020..0x007E,
-        0x00A0..0x00FF,
-        0x0370..0x03FF,
-        0x0400..0x04FF,
-        0x1F600..0x1F64F
+fun generateRandomDecimalInt(): Int {
+    return Random.nextInt(1, 10_000)
+}
+
+fun generateIEEEConversionProblem(): IEEEConversionProblem {
+    val format = ieeeFormats.random()
+    val number = generateRandomDecimalInt()
+    val displayValue = "$number"
+
+    val correctAnswer = when (format) {
+        "single" -> {
+            val bytes = ByteBuffer.allocate(4)
+                .order(ByteOrder.BIG_ENDIAN)
+                .putFloat(number.toFloat())
+                .array()
+            bytes.joinToString("") { "%02X".format(it) }
+        }
+        "double" -> {
+            val bytes = ByteBuffer.allocate(8)
+                .order(ByteOrder.BIG_ENDIAN)
+                .putDouble(number.toDouble())
+                .array()
+            bytes.joinToString("") { "%02X".format(it) }
+        }
+        "dec32" -> {
+            decimalToDecimalIEEEHex(BigDecimal(number), 32)
+        }
+        "dec64" -> {
+            decimalToDecimalIEEEHex(BigDecimal(number), 64)
+        }
+        else -> throw IllegalArgumentException("Unsupported format: $format")
+    }
+
+    return IEEEConversionProblem(
+        format = format,
+        displayValue = displayValue,
+        correctAnswer = correctAnswer
     )
-    val range = validRanges.random()
-    return range.random()
 }
 
-fun generateRandomUTFConversionProblem(): UTFConversionProblem {
-    val direction = directionOption.random()
-    val fromBaseName: String
-    val toBaseName: String
+fun decimalToDecimalIEEEHex(value: BigDecimal, bits: Int): String {
+    val significandDigits = if (bits == 32) 7 else 16 // 32 has 7 digits, 64 has 16
+    val decimalLayout = value.setScale(significandDigits - value.precision() + value.scale(), BigDecimal.ROUND_HALF_EVEN)
 
-    val codePoint = getRandomUnicodeCodePoint()
-    val charStr = String(Character.toChars(codePoint))
+    val decimalStr = decimalLayout.stripTrailingZeros().toPlainString()
 
-    // Map to valid Java charset names with big-endian explicitly
-    fun getCharsetName(option: String): String = when (option.lowercase()) {
-        "utf+8" -> "UTF-8"
-        "utf+16" -> "UTF-16BE"
-        "utf+32" -> "UTF-32BE"
-        else -> throw IllegalArgumentException("Unsupported UTF type: $option")
-    }
-
-    return if (direction == "unicodeToUtf") {
-        fromBaseName = "unicode"
-        toBaseName = UTFOptions.random()
-
-        val charsetName = getCharsetName(toBaseName)
-        val encodedBytes = charStr.toByteArray(Charset.forName(charsetName))
-
-        UTFConversionProblem(
-            direction = direction,
-            fromBaseName = fromBaseName,
-            toBaseName = toBaseName,
-            displayValue = "U+${codePoint.toString(16).uppercase()}",
-            correctAnswer = encodedBytes.joinToString("") {
-                it.toUByte().toString(16).uppercase().padStart(2, '0')
-            }
-        )
-    } else {
-        fromBaseName = UTFOptions.random()
-        toBaseName = "unicode U+"
-
-        val charsetName = getCharsetName(fromBaseName)
-        val encodedBytes = charStr.toByteArray(Charset.forName(charsetName))
-
-        UTFConversionProblem(
-            direction = direction,
-            fromBaseName = fromBaseName,
-            toBaseName = toBaseName,
-            displayValue = encodedBytes.joinToString("") {
-                it.toUByte().toString(16).uppercase().padStart(2, '0')
-            },
-            correctAnswer = "${codePoint.toString(16).uppercase()}"
-        )
-    }
+    val packed = DecimalFPEncoder.encodeDecimalFP(decimalLayout, bits)
+    return packed.joinToString("") { "%02X".format(it) } // return hex
 }
 
-
-class GameActivityUTF : ComponentActivity() {
+class GameActivityIEEE : ComponentActivity() {
     private lateinit var viewBinding : ActivityGameBinding
     private lateinit var drawingView: DrawingView
 
     private var score = 0
     private var enemyHp = 3
     private var playerHp = 3
-    private var totalTime = 60_000L
+    private var totalTime = 150_000L /// 2.5 mins
     private var interval = 100L
     private lateinit var timer: CountDownTimer
-    private var currentProblem: UTFConversionProblem? = null
+    private var currentProblem: IEEEConversionProblem? = null
     private lateinit var soundPool: SoundPool
     private var explosionSoundId: Int = 0
 
@@ -126,7 +110,7 @@ class GameActivityUTF : ComponentActivity() {
             val userInput = viewBinding.tobasenumEt.text.toString()
             val problem = currentProblem!!
 
-            if (userInput.lowercase() == problem.correctAnswer.lowercase()) {
+            if (userInput.lowercase() == problem.correctAnswer.toString().lowercase()) {
                 viewBinding.playerIv.hopAnimation()
                 viewBinding.enemyIv.wiggleAnimation()
                 showExplosionForMoment(viewBinding.enemyHurtIV)
@@ -193,12 +177,12 @@ class GameActivityUTF : ComponentActivity() {
     }
 
     private fun updateProblem(viewBinding: ActivityGameBinding) {
-        currentProblem = generateRandomUTFConversionProblem()
+        currentProblem = generateIEEEConversionProblem()
         val problem = currentProblem!!
-        Log.d("UTF_CONVERSION", "Correct answer: ${problem.correctAnswer}")
-        viewBinding.frombaseTv.setText(problem.fromBaseName.capitalized()+":")
+        Log.d("IEEE_CONVERSION", "Correct answer: ${problem.correctAnswer}")
+        viewBinding.frombaseTv.setText("Given:")
         viewBinding.frombasenumTv.setText(problem.displayValue.uppercase())
-        viewBinding.tobaseTv.setText(problem.toBaseName.capitalized()+":")
+        viewBinding.tobaseTv.setText(problem.format.capitalized()+":")
         viewBinding.tobasenumEt.text.clear()
         drawingView.clearDrawing()
     }
