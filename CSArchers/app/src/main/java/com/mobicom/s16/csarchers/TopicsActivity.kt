@@ -49,25 +49,29 @@ class TopicsActivity : ComponentActivity() {
         if(mode == "Simulator"){
             // arithmetic
             viewBinding.intArithmeticBtn.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, TopicsSimActivity::class.java)
+                intent.putExtra("SIM_MODE_KEY", "intarith")
                 startActivity(intent)
             }
 
             // conversion
             viewBinding.numSysBtn.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, TopicsSimActivity::class.java)
+                intent.putExtra("SIM_MODE_KEY", "numsys")
                 startActivity(intent)
             }
 
             // IEEE
             viewBinding.ieeeBtn.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, TopicsSimActivity::class.java)
+                intent.putExtra("SIM_MODE_KEY", "ieee")
                 startActivity(intent)
             }
 
             // UTF
             viewBinding.utfBtn.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
+                val intent = Intent(this, TopicsSimActivity::class.java)
+                intent.putExtra("SIM_MODE_KEY", "utf")
                 startActivity(intent)
             }
         }

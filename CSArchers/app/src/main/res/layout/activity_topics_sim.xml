@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/topics_tv_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/pixelify_sans"
+            android:gravity="center"
+            android:padding="20dp"
+            android:text="Topics"
+            android:textColor="#334767"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:id="@+id/select_mode_btn_leaderboard"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:adjustViewBounds="true"
+            android:alpha="1.0"
+            android:background="@android:color/transparent"
+            android:contentDescription="Trophy button"
+            android:outlineProvider="none"
+            android:padding="10dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/trophy"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <ScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/int_arith_ll"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/topics_tv_arithmetic_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/minecraft"
+                    android:paddingLeft="5dp"
+                    android:text="Integer Arithmetic"
+                    android:textColor="#334767"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_add"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="ADDITION (+)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_mult"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="MULTIPLICATION (×)"
+                            android:textColor="@color/white"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_sub"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="SUBTRACTION (-)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_div"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="DIVISION (÷)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/num_sys_ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/topics_tv_base_conversion_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/minecraft"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Number System Base Conversion"
+                    android:textColor="#334767"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_bin_dec"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Binary -> Decimal"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_bin_oct"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Binary -> Octal"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_bin_hex"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Binary -> Hex"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_dec_oct"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Decimal -> Octal"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ieee_ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/topics_tv_iee_header"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/minecraft"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="IEEE 754 Representation"
+                    android:textColor="#334767"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_flt32"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Single Precision (Float32)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_dec32"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Decimal Float 32"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_flt64"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Double Precision (FLOAT64)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_dec64"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Decimal Float 64"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/utf_ll"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/minecraft"
+                    android:paddingLeft="5dp"
+                    android:paddingTop="10dp"
+                    android:text="Unicode Representation"
+                    android:textColor="#334767"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_utf8"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="UTF-8"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                        <Button
+                            android:id="@+id/topics_btn_utf32"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="UTF-32"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_utf16"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="UTF-16"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>
