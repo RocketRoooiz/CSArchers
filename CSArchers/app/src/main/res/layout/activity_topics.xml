@@ -76,56 +76,15 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
+                    <ImageButton
+                        android:id="@+id/int_arithmetic_btn"
+                        android:layout_width="400dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/topic_integer_arithmetic_btn" />
 
-                        <Button
-                            android:id="@+id/topics_btn_add"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="ADDITION (+)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_mult"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="MULTIPLICATION (×)"
-                            android:textColor="@color/white"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_sub"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:fontFamily="sans-serif-medium"
-                            android:text="SUBTRACTION (-)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_div"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="DIVISION (÷)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
 
@@ -151,55 +110,14 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_bin_dec"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Binary -> Decimal"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_bin_oct"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Binary -> Octal"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_bin_hex"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Binary -> Hex"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_dec_oct"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Decimal -> Octal"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/num_sys_btn"
+                        android:layout_width="400dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/topic_number_base_systems_btn" />
                 </LinearLayout>
             </LinearLayout>
 
@@ -225,56 +143,14 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_flt32"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Single Precision (Float32)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_dec32"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Decimal Float 32"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_flt64"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Double Precision (FLOAT64)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_dec64"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Decimal Float 64"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
+                    <ImageButton
+                        android:id="@+id/ieee_btn"
+                        android:layout_width="400dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/topic_ieee_btn" />
                 </LinearLayout>
 
             </LinearLayout>
@@ -301,46 +177,14 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_utf8"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="UTF-8"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_utf32"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="UTF-32"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_utf16"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="UTF-16"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
+                    <ImageButton
+                        android:id="@+id/utf_btn"
+                        android:layout_width="400dp"
+                        android:layout_height="200dp"
+                        android:layout_weight="1"
+                        android:backgroundTint="@android:color/transparent"
+                        android:scaleType="fitXY"
+                        android:src="@drawable/topic_unicode_utf_btn" />
                 </LinearLayout>
             </LinearLayout>
 

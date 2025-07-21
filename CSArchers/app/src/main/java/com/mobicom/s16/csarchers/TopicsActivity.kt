@@ -22,69 +22,25 @@ class TopicsActivity : ComponentActivity() {
 
         if(mode == "Game"){
             // arithmetic
-            viewBinding.topicsBtnAdd.setOnClickListener {
-                //val intent = Intent(this, GameActivity::class.java)
-                //startActivity(intent)
-            }
-            viewBinding.topicsBtnMult.setOnClickListener {
-                //val intent = Intent(this, GameActivity::class.java)
-                //startActivity(intent)
-            }
-            viewBinding.topicsBtnSub.setOnClickListener {
-                //val intent = Intent(this, GameActivity::class.java)
-                //startActivity(intent)
-            }
-            viewBinding.topicsBtnDiv.setOnClickListener {
-                //val intent = Intent(this, GameActivity::class.java)
-                //startActivity(intent)
+            viewBinding.intArithmeticBtn.setOnClickListener {
+                val intent = Intent(this, GameActivityIntArithmetic::class.java)
+                startActivity(intent)
             }
 
             // conversion
-            viewBinding.topicsBtnBinDec.setOnClickListener {
-                val intent = Intent(this, GameActivityNumSys::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnBinHex.setOnClickListener {
-                val intent = Intent(this, GameActivityNumSys::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnBinOct.setOnClickListener {
-                val intent = Intent(this, GameActivityNumSys::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDecOct.setOnClickListener {
+            viewBinding.numSysBtn.setOnClickListener {
                 val intent = Intent(this, GameActivityNumSys::class.java)
                 startActivity(intent)
             }
 
             // IEEE
-            viewBinding.topicsBtnFlt32.setOnClickListener {
-                val intent = Intent(this, GameActivityIEEE::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDec32.setOnClickListener {
-                val intent = Intent(this, GameActivityIEEE::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnFlt64.setOnClickListener {
-                val intent = Intent(this, GameActivityIEEE::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDec64.setOnClickListener {
+            viewBinding.ieeeBtn.setOnClickListener {
                 val intent = Intent(this, GameActivityIEEE::class.java)
                 startActivity(intent)
             }
 
             // UTF
-            viewBinding.topicsBtnUtf8.setOnClickListener {
-                val intent = Intent(this, GameActivityUTF::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnUtf16.setOnClickListener {
-                val intent = Intent(this, GameActivityUTF::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnUtf32.setOnClickListener {
+            viewBinding.utfBtn.setOnClickListener {
                 val intent = Intent(this, GameActivityUTF::class.java)
                 startActivity(intent)
             }
@@ -92,69 +48,25 @@ class TopicsActivity : ComponentActivity() {
 
         if(mode == "Simulator"){
             // arithmetic
-            viewBinding.topicsBtnAdd.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnMult.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnSub.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDiv.setOnClickListener {
+            viewBinding.intArithmeticBtn.setOnClickListener {
                 val intent = Intent(this, SimulationActivity::class.java)
                 startActivity(intent)
             }
 
             // conversion
-            viewBinding.topicsBtnBinDec.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnBinHex.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnBinOct.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDecOct.setOnClickListener {
+            viewBinding.numSysBtn.setOnClickListener {
                 val intent = Intent(this, SimulationActivity::class.java)
                 startActivity(intent)
             }
 
             // IEEE
-            viewBinding.topicsBtnFlt32.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDec32.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnFlt64.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDec64.setOnClickListener {
+            viewBinding.ieeeBtn.setOnClickListener {
                 val intent = Intent(this, SimulationActivity::class.java)
                 startActivity(intent)
             }
 
             // UTF
-            viewBinding.topicsBtnUtf8.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnUtf16.setOnClickListener {
-                val intent = Intent(this, SimulationActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnUtf32.setOnClickListener {
+            viewBinding.utfBtn.setOnClickListener {
                 val intent = Intent(this, SimulationActivity::class.java)
                 startActivity(intent)
             }

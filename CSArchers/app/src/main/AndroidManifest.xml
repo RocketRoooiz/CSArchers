@@ -66,6 +66,12 @@
             android:theme="@style/Theme.CSArchers">
         </activity>
         <activity
+            android:name=".GameActivityIntArithmetic"
+            android:exported="true"
+            android:label="CSArchers"
+            android:theme="@style/Theme.CSArchers">
+        </activity>
+        <activity
             android:name=".SimulationActivity"
             android:exported="true"
             android:label="CSArchers"

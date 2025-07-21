@@ -13,111 +13,60 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
 import com.mobicom.s16.csarchers.databinding.ActivityGameBinding
+import java.nio.charset.Charset
+import kotlin.random.Random
 import java.util.Locale
 
-val baseOptions = listOf("binary", "octal", "decimal", "hex")
-val baseToRadix = mapOf("binary" to 2, "octal" to 8, "decimal" to 10, "hex" to 16)
+val operations = listOf("+", "-", "*", "/")
 
-data class ConversionProblem(
-    val fromBaseName: String,
-    val toBaseName: String,
-    val numberInFromBase: String,
-    val decimalValue: Int,
+data class BinaryProblem(
+    val operand1: String,
+    val operand2: String,
+    val operation: String,
     val correctAnswer: String
 )
 
-fun String.capitalized(): String {
-    return this.replaceFirstChar {
-        if (it.isLowerCase())
-            it.titlecase(Locale.getDefault())
-        else it.toString()
-    }
-}
+fun generateRandomBinaryProblem(): BinaryProblem {
+    val op = operations.random()
+    var aInt: Int
+    var bInt: Int
 
-fun generateRandomConversionProblem(): ConversionProblem {
-    val fromBaseName = baseOptions.random()
-    var toBaseName: String
-
-    do {
-        toBaseName = baseOptions.random()
-    } while (toBaseName == fromBaseName)
-
-    val randomDecimalValue = (1..255).random() // range can be adjusted
-    val numberInFromBase = Integer.toString(randomDecimalValue, baseToRadix[fromBaseName]!!)
-
-    val correctAnswer = convertNumber(
-        numberInFromBase,
-        baseToRadix[fromBaseName]!!,
-        baseToRadix[toBaseName]!!
-    )
-
-    return ConversionProblem(
-        fromBaseName,
-        toBaseName,
-        numberInFromBase,
-        randomDecimalValue,
-        correctAnswer
-    )
-}
-
-fun convertNumber(input: String, fromBase: Int, toBase: Int): String {
-    return try {
-        val decimalValue = input.toInt(fromBase)
-        decimalValue.toString(toBase)
-    } catch (e: NumberFormatException) {
-        "Invalid input for base $fromBase"
-    }
-}
-
-fun View.hopAnimation() {
-    this.animate().cancel()
-    this.translationY = 0f
-
-    this.animate()
-        .translationYBy(-50f) // move up 50 pixels
-        .setDuration(150)
-        .withEndAction {
-            this.animate()
-                .translationYBy(50f) // move back down
-                .setDuration(150)
-                .start()
+    when (op) {
+        "-" -> {
+            aInt = Random.nextInt(0, 256)
+            bInt = Random.nextInt(0, aInt + 1) // ensures a ≥ b
         }
-        .start()
-}
-
-fun View.wiggleAnimation() {
-    val distance = 20f // pixels left/right
-
-    this.animate().cancel()
-    this.translationX = 0f
-
-    this.animate()
-        .translationXBy(-distance)
-        .setDuration(100)
-        .withEndAction {
-            this.animate()
-                .translationXBy(2 * distance)
-                .setDuration(100)
-                .withEndAction {
-                    this.animate()
-                        .translationXBy(-distance)
-                        .setDuration(100)
-                        .start()
-                }
-                .start()
+        "/" -> {
+            aInt = Random.nextInt(0, 256)
+            bInt = Random.nextInt(1, 256) // ensures b ≠ 0
         }
-        .start()
+        else -> {
+            aInt = Random.nextInt(0, 256)
+            bInt = Random.nextInt(0, 256)
+        }
+    }
+
+    val a = aInt.toString(2)
+    val b = bInt.toString(2)
+
+    val result = when (op) {
+        "+" -> (aInt + bInt)
+        "-" -> (aInt - bInt)
+        "*" -> (aInt * bInt)
+        "/" -> (aInt / bInt)
+        else -> 0
+    }.toString(2)
+
+    return BinaryProblem(
+        operand1 = a,
+        operand2 = b,
+        operation = op,
+        correctAnswer = result
+    )
 }
 
-fun showExplosionForMoment(explosionView: ImageView, duration: Long = 300L) {
-    explosionView.visibility = View.VISIBLE
 
-    Handler(Looper.getMainLooper()).postDelayed({
-        explosionView.visibility = View.GONE
-    }, duration)
-}
-
-class GameActivityNumSys : ComponentActivity() {
+class GameActivityIntArithmetic : ComponentActivity() {
     private lateinit var viewBinding : ActivityGameBinding
     private lateinit var drawingView: DrawingView
 
@@ -127,7 +76,7 @@ class GameActivityNumSys : ComponentActivity() {
     private var totalTime = 60_000L
     private var interval = 100L
     private lateinit var timer: CountDownTimer
-    private var currentProblem: ConversionProblem? = null
+    private var currentProblem: BinaryProblem? = null
     private lateinit var soundPool: SoundPool
     private var explosionSoundId: Int = 0
 
@@ -217,13 +166,12 @@ class GameActivityNumSys : ComponentActivity() {
     }
 
     private fun updateProblem(viewBinding: ActivityGameBinding) {
-        currentProblem = generateRandomConversionProblem()
+        currentProblem = generateRandomBinaryProblem()
         val problem = currentProblem!!
-
-        Log.d("NUMSYS_CONVERSION", "Correct answer: ${problem.correctAnswer}")
-        viewBinding.frombaseTv.setText(problem.fromBaseName.capitalized()+":")
-        viewBinding.frombasenumTv.setText(problem.numberInFromBase.uppercase())
-        viewBinding.tobaseTv.setText(problem.toBaseName.capitalized()+":")
+        Log.d("INT_ARITHMETIC_CONVERSION", "Correct answer: ${problem.correctAnswer}")
+        viewBinding.frombaseTv.setText("Given:")
+        viewBinding.frombasenumTv.text = "${problem.operand1} ${problem.operation} ${problem.operand2}"
+        viewBinding.tobaseTv.setText("Answer:")
         viewBinding.tobasenumEt.text.clear()
         drawingView.clearDrawing()
     }
