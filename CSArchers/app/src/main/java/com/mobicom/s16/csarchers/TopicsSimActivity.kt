@@ -27,14 +27,17 @@ class TopicsSimActivity : ComponentActivity() {
             viewBinding.intArithLl.visibility = View.VISIBLE
             viewBinding.numSysLl.visibility = View.GONE
             viewBinding.ieeeLl.visibility = View.GONE
+            viewBinding.utfLl.visibility = View.GONE
         }else if(mode == "numsys"){
             viewBinding.intArithLl.visibility = View.GONE
             viewBinding.numSysLl.visibility = View.VISIBLE
             viewBinding.ieeeLl.visibility = View.GONE
+            viewBinding.utfLl.visibility = View.GONE
         }else if(mode == "ieee"){
             viewBinding.intArithLl.visibility = View.GONE
             viewBinding.numSysLl.visibility = View.GONE
             viewBinding.ieeeLl.visibility = View.VISIBLE
+            viewBinding.utfLl.visibility = View.GONE
         }else if(mode == "utf"){
             viewBinding.intArithLl.visibility = View.GONE
             viewBinding.numSysLl.visibility = View.GONE
