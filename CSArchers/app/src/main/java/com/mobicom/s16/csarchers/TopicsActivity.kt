@@ -7,6 +7,7 @@ import com.mobicom.s16.csarchers.binary_add_sub_sim.BinaryAddSubSimActivity
 import com.mobicom.s16.csarchers.databinding.ActivityTopicsBinding
 import com.mobicom.s16.csarchers.decimal_binary_sim.DecimalBinarySimActivity
 import com.mobicom.s16.csarchers.floating_point_sim.HalfPrecisionFloatSimActivity
+import com.mobicom.s16.csarchers.multiplier_sim.BinaryMultiplierSimActivity
 
 class TopicsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -98,7 +99,7 @@ class TopicsActivity : ComponentActivity() {
                 startActivity(intent)
             }
             viewBinding.topicsBtnMult.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
+                val intent = Intent(this, BinaryMultiplierSimActivity::class.java)
                 startActivity(intent)
             }
             viewBinding.topicsBtnSub.setOnClickListener {
