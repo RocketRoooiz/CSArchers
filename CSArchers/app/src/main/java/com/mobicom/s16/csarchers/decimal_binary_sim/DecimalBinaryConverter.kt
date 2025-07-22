@@ -2,6 +2,10 @@ package com.mobicom.s16.csarchers.decimal_binary_sim
 
 import com.mobicom.s16.csarchers.Size
 import kotlin.math.pow
+
+data class UnsignedDecimalToBinaryStep(val dividend: Long, val quotient: Long, val remainder: Long, val bit: Int)
+data class UnsignedBinaryToDecimalStep(val bit: Long, val exponent: Long, val product: Long)
+
 class DecimalBinaryConverter {
     var current_input: String = ""
     var current_output: String = ""
@@ -21,6 +25,13 @@ class DecimalBinaryConverter {
             updateRanges()
         }
 
+    var unsigned_decimal_to_binary_steps: MutableList<UnsignedDecimalToBinaryStep>
+    = mutableListOf<UnsignedDecimalToBinaryStep>()
+        private set
+    var unsigned_binary_to_decimal_steps: MutableList<UnsignedBinaryToDecimalStep>
+    = mutableListOf<UnsignedBinaryToDecimalStep>()
+        private set
+
     init {
         updateRanges()
     }
@@ -34,6 +45,9 @@ class DecimalBinaryConverter {
 
     fun convertDecimal2Binary(input: String): String {
         current_input = input
+
+        unsigned_decimal_to_binary_steps.clear()
+
         try {
             if (isSigned) { // is signed
                 val signed_decimal = input.toLong()
@@ -46,10 +60,25 @@ class DecimalBinaryConverter {
                 } else {
                     signed_decimal.toString(2).padStart(size.value, '0')
                 }
+
             } else { // is unsigned
                 val unsigned_decimal = input.toULong()
                 require(unsigned_decimal in unsigned_min..unsigned_max) { "Input out-of-range" }
                 current_output = unsigned_decimal.toString(2).padStart(size.value, '0')
+
+                var bit = 0
+                var dividend = unsigned_decimal.toLong()
+                var quotient = 0L
+                var remainder = 0L
+                while (dividend > 0) {
+                    quotient = dividend / 2L
+                    remainder = dividend % 2L
+                    bit++
+
+                    unsigned_decimal_to_binary_steps.add(UnsignedDecimalToBinaryStep(dividend, quotient, remainder, bit))
+
+                    dividend = quotient
+                }
             }
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("Invalid number format")
@@ -82,6 +111,14 @@ class DecimalBinaryConverter {
                 val unsigned_decimal = input.toULong(2)
                 require(unsigned_decimal in unsigned_min..unsigned_max) { "Input out-of-range" }
                 current_output = unsigned_decimal.toString()
+
+                for (i in 0 until size.value) {
+                    val bit = current_output[size.value - i - 1].code - 48L
+                    val exponent = i.toLong()
+                    val product = (2.0.pow(i)).toLong() * bit
+
+                    unsigned_binary_to_decimal_steps.add(UnsignedBinaryToDecimalStep(bit, exponent, product))
+                }
             }
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("Invalid binary format")

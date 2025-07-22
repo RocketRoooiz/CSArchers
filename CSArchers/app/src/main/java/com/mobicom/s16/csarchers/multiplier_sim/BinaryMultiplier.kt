@@ -3,6 +3,10 @@ package com.mobicom.s16.csarchers.multiplier_sim
 import com.mobicom.s16.csarchers.Size
 import kotlin.math.pow
 
+data class MultiplierStep(val bit: Int, val add_m: Boolean, val carry: Boolean,
+                          val a: ULong, val a_plus_m: ULong, val a_shr: ULong,
+                          val q: ULong, val q_shr: ULong)
+
 class BinaryMultiplier {
     private var current_multiplicand: String = ""
     private var current_multiplier: String = ""
@@ -13,6 +17,10 @@ class BinaryMultiplier {
     var unsigned_mid: ULong = 0u
         private set
     var unsigned_max: ULong = 0u
+        private set
+
+    var constant_m = 0uL
+    var steps: MutableList<MultiplierStep> = mutableListOf<MultiplierStep>()
         private set
 
     var size: Size = Size._8BITS
@@ -47,6 +55,7 @@ class BinaryMultiplier {
         } catch (e: NumberFormatException) {
             throw IllegalArgumentException("Invalid binary format for multiplicand")
         }
+        constant_m = m
 
         var q = try {
             multiplier.toULong(2) // Multiplier
@@ -56,23 +65,37 @@ class BinaryMultiplier {
 
         var carry: Boolean
 
+        steps.clear()
+
         for (i in 0 until size.value) {
+            val a_initial = a
+            val q_initial = q
+
             // Add multiplicand to accumulator if LSB of q is 1
+            val add_m = q and 1uL == 1uL
             a += if (q and 1uL == 1uL) m else 0uL
+            val a_plus_m = a
 
             // Check for carry
             carry = a > unsigned_max
+            val c = carry
+
             a = a and unsigned_max
 
             // Shift q right and bring in LSB from a
             q = q shr 1
             q = q or ((a and 1uL) shl (size.value - 1)) // Fixed: properly set MSB of q
+            val q_shr = q
 
             // Shift a right and handle carry
             a = a shr 1
             if (carry) {
                 a = a or unsigned_mid // Set the MSB if there was a carry
             }
+            val a_shr = a
+
+            // Add a current step to the step list.
+            steps.add(MultiplierStep(i + 1, add_m, c, a, a_plus_m, a_shr, q, q_shr))
         }
 
         // Combine a and q to form the product
