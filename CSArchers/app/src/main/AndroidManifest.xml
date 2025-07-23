@@ -48,6 +48,15 @@
             android:theme="@style/Theme.CSArchers">
         </activity>
         <activity
+<<<<<<< HEAD
+=======
+            android:name=".TopicsSimActivity"
+            android:exported="true"
+            android:label="CSArchers"
+            android:theme="@style/Theme.CSArchers">
+        </activity>
+        <activity
+>>>>>>> sims
             android:name=".GameActivityNumSys"
             android:exported="true"
             android:label="CSArchers"
@@ -67,6 +76,30 @@
         </activity>
         <activity
             android:name=".GameActivityIntArithmetic"
+            android:exported="true"
+            android:label="CSArchers"
+            android:theme="@style/Theme.CSArchers">
+        </activity>
+        <activity
+            android:name=".decimal_binary_sim.DecimalBinarySimActivity"
+            android:exported="true"
+            android:label="CSArchers"
+            android:theme="@style/Theme.CSArchers">
+        </activity>
+        <activity
+            android:name=".binary_add_sub_sim.BinaryAddSubSimActivity"
+            android:exported="true"
+            android:label="CSArchers"
+            android:theme="@style/Theme.CSArchers">
+        </activity>
+        <activity
+            android:name=".floating_point_sim.HalfPrecisionFloatSimActivity"
+            android:exported="true"
+            android:label="CSArchers"
+            android:theme="@style/Theme.CSArchers">
+        </activity>
+        <activity
+            android:name=".multiplier_sim.BinaryMultiplierSimActivity"
             android:exported="true"
             android:label="CSArchers"
             android:theme="@style/Theme.CSArchers">

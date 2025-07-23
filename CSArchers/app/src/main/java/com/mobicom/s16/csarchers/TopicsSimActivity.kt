@@ -5,6 +5,11 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import com.mobicom.s16.csarchers.databinding.ActivityTopicsSimBinding
 import android.view.View
+import com.mobicom.s16.csarchers.binary_add_sub_sim.BinaryAddSubSimActivity
+import com.mobicom.s16.csarchers.decimal_binary_sim.DecimalBinarySimActivity
+import com.mobicom.s16.csarchers.floating_point_sim.HalfPrecisionFloatSimActivity
+import com.mobicom.s16.csarchers.multiplier_sim.BinaryMultiplierSimActivity
+import com.mobicom.s16.csarchers.databinding.ActivityTopicsBinding
 
 class TopicsSimActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -38,74 +43,27 @@ class TopicsSimActivity : ComponentActivity() {
             viewBinding.intArithLl.visibility = View.GONE
             viewBinding.numSysLl.visibility = View.GONE
             viewBinding.ieeeLl.visibility = View.GONE
-            viewBinding.utfLl.visibility = View.VISIBLE
         }
 
         // INTEGER ARITHMETIC
-        viewBinding.topicsBtnAdd.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
+        viewBinding.topicsBtnAddSub.setOnClickListener {
+            val intent = Intent(this, BinaryAddSubSimActivity::class.java)
             startActivity(intent)
         }
-        viewBinding.topicsBtnMult.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnSub.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnDiv.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
+        viewBinding.topicsBtnMul.setOnClickListener {
+            val intent = Intent(this, BinaryMultiplierSimActivity::class.java)
             startActivity(intent)
         }
 
         // NUMBERSYSTEM
         viewBinding.topicsBtnBinDec.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnBinHex.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnBinOct.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnDecOct.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
+            val intent = Intent(this, DecimalBinarySimActivity::class.java)
             startActivity(intent)
         }
 
         // IEEE
-        viewBinding.topicsBtnFlt32.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnDec32.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnFlt64.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnDec64.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-
-        // UTF
-        viewBinding.topicsBtnUtf8.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnUtf16.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
-            startActivity(intent)
-        }
-        viewBinding.topicsBtnUtf32.setOnClickListener {
-            val intent = Intent(this, SimulationActivity::class.java)
+        viewBinding.topicsBtnFlt16.setOnClickListener {
+            val intent = Intent(this, HalfPrecisionFloatSimActivity::class.java)
             startActivity(intent)
         }
     }

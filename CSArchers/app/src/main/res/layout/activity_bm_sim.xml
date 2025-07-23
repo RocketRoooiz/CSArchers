@@ -1,104 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_db_sim_cl"
+    android:id="@+id/activity_bm_sim_cl"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/simulation_background"
     android:padding="10dp">
 
     <TextView
-        android:id="@+id/activity_db_sim_title_tv"
+        android:id="@+id/activity_bm_sim_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
         android:fontFamily="@font/minecraft"
-        android:text="Decimal and Binary Converter"
+        android:text="Unsigned Binary Multiplier"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/activity_db_sim_datatype_ll"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:layout_weight="1"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_db_sim_title_tv">
-
-        <Button
-            android:id="@+id/activity_db_sim_signed_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="#E6C5A0"
-            android:fontFamily="@font/minecraft"
-            android:text="Signed"
-            android:textColor="#564839" />
-
-        <Button
-            android:id="@+id/activity_db_sim_unsigned_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="20dp"
-            android:layout_weight="1"
-            android:background="#E6C5A0"
-            android:backgroundTint="#564839"
-            android:fontFamily="@font/minecraft"
-            android:text="Unsigned"
-            android:textColor="@color/white" />
-
-        <Button
-            android:id="@+id/activity_db_sim_size_8_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="#E6C5A0"
-            android:backgroundTint="#564839"
-            android:fontFamily="@font/minecraft"
-            android:text="8"
-            android:textColor="@color/white"
-            android:textSize="12sp" />
-
-        <Button
-            android:id="@+id/activity_db_sim_size_16_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:background="#E6C5A0"
-            android:fontFamily="@font/minecraft"
-            android:text="16"
-            android:textColor="#564839"
-            android:textSize="12sp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/activity_db_sim_input_ll"
+        android:id="@+id/activity_bm_sim_multiplicand_ll"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
+        android:layout_marginTop="30dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_db_sim_datatype_ll">
+        app:layout_constraintTop_toBottomOf="@+id/activity_bm_sim_title_tv">
 
         <TextView
-            android:id="@+id/activity_db_sim_input_header_tv"
+            android:id="@+id/activity_bm_sim_multiplicand_header_tv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="@font/minecraft"
-            android:text="Decimal (Range: 0 - 255):"
+            android:text="Multiplicand (Range: 0 - 255):"
             android:textSize="20sp" />
 
         <EditText
-            android:id="@+id/activity_db_sim_input_et"
+            android:id="@+id/activity_bm_sim_multiplicand_et"
             android:layout_width="match_parent"
             android:layout_height="43dp"
             android:background="#E4C39F"
@@ -111,74 +52,90 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/activity_db_sim_buttons_ll"
-        android:layout_width="172dp"
+        android:id="@+id/activity_bm_sim_multiplier_ll"
+        android:layout_width="345dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="25dp"
-        android:orientation="horizontal"
+        android:layout_marginTop="30dp"
+        android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_db_sim_input_ll">
+        app:layout_constraintTop_toBottomOf="@+id/activity_bm_sim_multiplicand_ll">
 
-        <Button
-            android:id="@+id/activity_db_sim_convert_btn"
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/activity_bm_sim_multiplier_header_tv"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="5"
-            android:backgroundTint="#564839"
             android:fontFamily="@font/minecraft"
-            android:text="Convert"
-            android:textColor="@color/white" />
+            android:text="Multiplier (Range: 0 - 255):"
+            android:textSize="20sp" />
 
-        <ImageButton
-            android:id="@+id/activity_db_sim_exchange_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:layout_weight="1"
-            android:backgroundTint="#564839"
-            android:src="@drawable/exchange_icon" />
+        <EditText
+            android:id="@+id/activity_bm_sim_multiplier_et"
+            android:layout_width="match_parent"
+            android:layout_height="43dp"
+            android:background="#E4C39F"
+            android:fontFamily="@font/minecraft"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="#554739"
+            android:textSize="16sp" />
+
     </LinearLayout>
 
+    <Button
+        android:id="@+id/activity_bm_sim_calculate_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_weight="5"
+        android:backgroundTint="#564839"
+        android:fontFamily="@font/minecraft"
+        android:text="Calculate"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_bm_sim_multiplier_ll" />
+
     <LinearLayout
-        android:id="@+id/activity_db_sim_outputs_ll"
+        android:id="@+id/activity_bm_sim_outputs_ll"
         android:layout_width="345dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="25dp"
         android:orientation="vertical"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_db_sim_buttons_ll">
+        app:layout_constraintTop_toBottomOf="@+id/activity_bm_sim_calculate_btn">
 
         <LinearLayout
-            android:id="@+id/activity_db_sim_output_binary_ll"
+            android:id="@+id/activity_bm_output_binary_ll"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/activity_db_sim_binary_header_tv"
+                android:id="@+id/activity_bm_sim_binary_output_header_tv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/minecraft"
-                android:text="Binary:"
+                android:text="Result:"
                 android:textSize="20sp" />
 
             <LinearLayout
-                android:id="@+id/activity_db_sim_binary_output_bits_ll"
+                android:id="@+id/activity_bm_sim_binary_output_bits_ll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="#E2C19E"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:id="@+id/activity_db_sim_byte1_ll"
+                    android:id="@+id/activity_bm_sim_byte1_ll"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit15_tv"
+                        android:id="@+id/activity_bm_sim_bit15_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -187,7 +144,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit14_tv"
+                        android:id="@+id/activity_bm_sim_bit14_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -196,7 +153,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit13_tv"
+                        android:id="@+id/activity_bm_sim_bit13_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -205,7 +162,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit12_tv"
+                        android:id="@+id/activity_bm_sim_bit12_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -214,7 +171,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit11_tv"
+                        android:id="@+id/activity_bm_sim_bit11_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -223,7 +180,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit10_tv"
+                        android:id="@+id/activity_bm_sim_bit10_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -232,7 +189,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit9_tv"
+                        android:id="@+id/activity_bm_sim_bit9_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -241,7 +198,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit8_tv"
+                        android:id="@+id/activity_bm_sim_bit8_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -252,14 +209,14 @@
                 </LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/activity_db_sim_byte0_ll"
+                    android:id="@+id/activity_bm_sim_byte0_ll"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:orientation="horizontal">
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit7_tv"
+                        android:id="@+id/activity_bm_sim_bit7_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -268,7 +225,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit6_tv"
+                        android:id="@+id/activity_bm_sim_bit6_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -277,7 +234,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit5_tv"
+                        android:id="@+id/activity_bm_sim_bit5_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -286,7 +243,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit4_tv"
+                        android:id="@+id/activity_bm_sim_bit4_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -295,7 +252,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit3_tv"
+                        android:id="@+id/activity_bm_sim_bit3_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -304,7 +261,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit2_tv"
+                        android:id="@+id/activity_bm_sim_bit2_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -313,7 +270,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit1_tv"
+                        android:id="@+id/activity_bm_sim_bit1_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -322,7 +279,7 @@
                         android:text="0" />
 
                     <TextView
-                        android:id="@+id/activity_db_sim_bit0_tv"
+                        android:id="@+id/activity_bm_sim_bit0_tv"
                         android:layout_width="43dp"
                         android:layout_height="43dp"
                         android:layout_weight="1"
@@ -334,111 +291,8 @@
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
-            android:id="@+id/activity_db_sim_output_decimal_ll"
-            android:layout_width="345dp"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/activity_db_sim_output_decimal_header_tv"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/minecraft"
-                android:text="Decimal:"
-                android:textSize="20sp" />
-
-            <TextView
-                android:id="@+id/activity_db_sim_output_decimal_tv"
-                android:layout_width="match_parent"
-                android:layout_height="43dp"
-                android:layout_weight="1"
-                android:background="#E4C39F"
-                android:fontFamily="@font/minecraft"
-                android:gravity="center_vertical"
-                android:paddingStart="8dp"
-                android:text="0" />
-
-        </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/activity_db_sim_solution_ll"
-        android:layout_width="345dp"
-        android:layout_height="0dp"
-        android:layout_margin="25dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_db_sim_outputs_ll">
-
-        <TextView
-            android:id="@+id/activity_db_sim_solution_header_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/minecraft"
-            android:text="Solution:"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:id="@+id/activity_db_sim_step_header_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col1_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="dividend"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col2_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="divisor"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col3_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="quotient"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col4_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="bit"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col5_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="position"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/activity_db_sim_steps_rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
 
     <!-- Minecraft Font Source: https://www.dafont.com/minecraft.fonthttps://www.dafont.com/minecraft.font-->
 </androidx.constraintlayout.widget.ConstraintLayout>
-
