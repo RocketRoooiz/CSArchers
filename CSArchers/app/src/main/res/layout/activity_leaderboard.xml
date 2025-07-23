@@ -7,7 +7,7 @@
     android:background="@drawable/background">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/leaderboard_tv_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
@@ -19,7 +19,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
     <LinearLayout
+        android:id="@+id/linearLayout5"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_margin="20dp"
@@ -29,7 +31,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2">
+        app:layout_constraintTop_toBottomOf="@+id/leaderboard_tv_header">
 
         <LinearLayout
             android:id="@+id/text_Ll"
@@ -73,13 +75,43 @@
                 android:textAlignment="center"
                 android:textColor="#334666"
                 android:textSize="20sp" />
+
         </LinearLayout>
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1" />
+            android:layout_marginBottom="100dp"
+            android:layout_weight="0" />
 
     </LinearLayout>
+
+    <ImageButton
+        android:id="@+id/leaderboard_btn_switch"
+        android:layout_width="150dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="510dp"
+        android:background="@android:drawable/screen_background_light_transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/empty_board"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
+
+    <TextView
+        android:id="@+id/leaderboard_tv_mode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="510dp"
+        android:fontFamily="@font/pixelify_sans_bold"
+        android:text="TextView"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/linearLayout5"
+        app:layout_constraintEnd_toEndOf="@+id/linearLayout5"
+        app:layout_constraintStart_toStartOf="@+id/linearLayout5"
+        app:layout_constraintTop_toTopOf="@+id/linearLayout5" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
