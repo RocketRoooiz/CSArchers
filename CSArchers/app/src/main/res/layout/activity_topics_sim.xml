@@ -60,11 +60,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-<<<<<<< HEAD
                 android:visibility="visible">
-=======
-                android:visibility="gone">
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
 
                 <TextView
                     android:id="@+id/topics_tv_arithmetic_header"
@@ -88,7 +84,6 @@
                         android:orientation="vertical">
 
                         <Button
-<<<<<<< HEAD
                             android:id="@+id/topics_btn_add_sub"
                             android:layout_width="200dp"
                             android:layout_height="100dp"
@@ -97,25 +92,6 @@
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
 
-=======
-                            android:id="@+id/topics_btn_add"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="ADDITION (+)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_mult"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="MULTIPLICATION (×)"
-                            android:textColor="@color/white"
-                            android:textSize="16sp" />
-
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
                     </LinearLayout>
 
                     <LinearLayout
@@ -124,29 +100,12 @@
                         android:orientation="vertical">
 
                         <Button
-<<<<<<< HEAD
                             android:id="@+id/topics_btn_mul"
-=======
-                            android:id="@+id/topics_btn_sub"
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
                             android:layout_width="200dp"
                             android:layout_height="100dp"
                             android:backgroundTint="#334767"
                             android:fontFamily="sans-serif-medium"
-<<<<<<< HEAD
                             android:text="Multiplication (*)"
-=======
-                            android:text="SUBTRACTION (-)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_div"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="DIVISION (÷)"
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
 
@@ -160,11 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-<<<<<<< HEAD
                 android:visibility="visible">
-=======
-                android:visibility="gone">
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
 
                 <TextView
                     android:id="@+id/topics_tv_base_conversion_header"
@@ -179,14 +134,9 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-<<<<<<< HEAD
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-=======
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -199,52 +149,12 @@
                             android:layout_width="200dp"
                             android:layout_height="100dp"
                             android:backgroundTint="#334767"
-<<<<<<< HEAD
                             android:text="Binary \u003C-\u003E Decimal"
-=======
-                            android:text="Binary -> Decimal"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_bin_oct"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Binary -> Octal"
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
 
                     </LinearLayout>
 
-<<<<<<< HEAD
-=======
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_bin_hex"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Binary -> Hex"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_dec_oct"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Decimal -> Octal"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
                 </LinearLayout>
             </LinearLayout>
 
@@ -253,11 +163,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-<<<<<<< HEAD
                 android:visibility="visible">
-=======
-                android:visibility="gone">
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
 
                 <TextView
                     android:id="@+id/topics_tv_iee_header"
@@ -272,14 +178,9 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-<<<<<<< HEAD
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center"
-=======
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
                     android:orientation="horizontal">
 
                     <LinearLayout
@@ -288,134 +189,20 @@
                         android:orientation="vertical">
 
                         <Button
-<<<<<<< HEAD
                             android:id="@+id/topics_btn_flt16"
                             android:layout_width="200dp"
                             android:layout_height="100dp"
                             android:backgroundTint="#334767"
                             android:text="Half Precision (Float16)"
-=======
-                            android:id="@+id/topics_btn_flt32"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Single Precision (Float32)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_dec32"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Decimal Float 32"
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
 
                     </LinearLayout>
 
-<<<<<<< HEAD
-=======
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_flt64"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Double Precision (FLOAT64)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_dec64"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Decimal Float 64"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
                 </LinearLayout>
 
             </LinearLayout>
 
-<<<<<<< HEAD
-=======
-            <LinearLayout
-                android:id="@+id/utf_ll"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/minecraft"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="10dp"
-                    android:text="Unicode Representation"
-                    android:textColor="#334767"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_utf8"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="UTF-8"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                        <Button
-                            android:id="@+id/topics_btn_utf32"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="UTF-32"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-                        <Button
-                            android:id="@+id/topics_btn_utf16"
-                            android:layout_width="200dp"
-                            android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="UTF-16"
-                            android:textColor="#FFFFFF"
-                            android:textSize="16sp" />
-
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-
->>>>>>> 2bc7558 (sim new buttons inside main topic buttons)
         </LinearLayout>
     </ScrollView>
 

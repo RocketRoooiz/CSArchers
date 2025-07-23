@@ -48,12 +48,15 @@
             android:theme="@style/Theme.CSArchers">
         </activity>
         <activity
+<<<<<<< HEAD
+=======
             android:name=".TopicsSimActivity"
             android:exported="true"
             android:label="CSArchers"
             android:theme="@style/Theme.CSArchers">
         </activity>
         <activity
+>>>>>>> sims
             android:name=".GameActivityNumSys"
             android:exported="true"
             android:label="CSArchers"
