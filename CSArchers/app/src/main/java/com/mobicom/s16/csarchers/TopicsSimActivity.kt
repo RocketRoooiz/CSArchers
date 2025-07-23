@@ -1,5 +1,6 @@
 package com.mobicom.s16.csarchers
 
+import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
@@ -19,6 +20,23 @@ class TopicsSimActivity : ComponentActivity() {
         val intent = getIntent()
         val mode = intent.getStringExtra("SIM_MODE_KEY")
 
+        val mydbHelper = MyDbHelper(this)
+        viewBinding.topicsSimLogoutBtn.setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle("Logout")
+                .setMessage("Are you sure you want to logout?")
+                .setPositiveButton("Yes") { dialog, _ ->
+                    mydbHelper.logout()
+                    val intent = Intent(this, MainActivity::class.java)
+                    intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
+                    startActivity(intent)
+                    dialog.dismiss()
+                }
+                .setNegativeButton("Cancel") { dialog, _ ->
+                    dialog.dismiss()
+                }
+                .show()
+        }
         viewBinding.selectModeBtnLeaderboard.setOnClickListener({
             val intent = Intent(this, LeaderboardActivity::class.java)
             startActivity(intent)
