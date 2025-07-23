@@ -1,13 +1,11 @@
 package com.mobicom.s16.csarchers
 
+
 import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
-import com.mobicom.s16.csarchers.binary_add_sub_sim.BinaryAddSubSimActivity
 import com.mobicom.s16.csarchers.databinding.ActivityTopicsBinding
-import com.mobicom.s16.csarchers.decimal_binary_sim.DecimalBinarySimActivity
-import com.mobicom.s16.csarchers.floating_point_sim.HalfPrecisionFloatSimActivity
-import com.mobicom.s16.csarchers.multiplier_sim.BinaryMultiplierSimActivity
+
 
 class TopicsActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -24,140 +22,52 @@ class TopicsActivity : ComponentActivity() {
 
         if(mode == "Game"){
             // arithmetic
-            viewBinding.topicsBtnAdd.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnMult.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnSub.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDiv.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
+            viewBinding.intArithmeticBtn.setOnClickListener {
+
             }
 
             // conversion
-            viewBinding.topicsBtnBinDec.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnBinHex.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnBinOct.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDecOct.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
+            viewBinding.numSysBtn.setOnClickListener {
+
             }
 
             // IEEE
-            viewBinding.topicsBtnFlt32.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDec32.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnFlt64.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDec64.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
+            viewBinding.ieeeBtn.setOnClickListener {
+
             }
 
             // UTF
-            viewBinding.topicsBtnUtf8.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnUtf16.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnUtf32.setOnClickListener {
-                val intent = Intent(this, GameActivity::class.java)
-                startActivity(intent)
+            viewBinding.utfBtn.setOnClickListener {
+
             }
         }
 
         if(mode == "Simulator"){
             // arithmetic
-            viewBinding.topicsBtnAdd.setOnClickListener {
-                val intent = Intent(this, BinaryAddSubSimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnMult.setOnClickListener {
-                val intent = Intent(this, BinaryMultiplierSimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnSub.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDiv.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
+            viewBinding.intArithmeticBtn.setOnClickListener {
+                val intent = Intent(this, TopicsSimActivity::class.java)
+                intent.putExtra("SIM_MODE_KEY", "intarith")
                 startActivity(intent)
             }
 
             // conversion
-            viewBinding.topicsBtnBinDec.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnBinHex.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnBinOct.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDecOct.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
+            viewBinding.numSysBtn.setOnClickListener {
+                val intent = Intent(this, TopicsSimActivity::class.java)
+                intent.putExtra("SIM_MODE_KEY", "numsys")
                 startActivity(intent)
             }
 
             // IEEE
-            viewBinding.topicsBtnFlt32.setOnClickListener {
-                val intent = Intent(this, HalfPrecisionFloatSimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDec32.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnFlt64.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnDec64.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
+            viewBinding.ieeeBtn.setOnClickListener {
+                val intent = Intent(this, TopicsSimActivity::class.java)
+                intent.putExtra("SIM_MODE_KEY", "ieee")
                 startActivity(intent)
             }
 
             // UTF
-            viewBinding.topicsBtnUtf8.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnUtf16.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
-                startActivity(intent)
-            }
-            viewBinding.topicsBtnUtf32.setOnClickListener {
-                val intent = Intent(this, DecimalBinarySimActivity::class.java)
+            viewBinding.utfBtn.setOnClickListener {
+                val intent = Intent(this, TopicsSimActivity::class.java)
+                intent.putExtra("SIM_MODE_KEY", "utf")
                 startActivity(intent)
             }
         }

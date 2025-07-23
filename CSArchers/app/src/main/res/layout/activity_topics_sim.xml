@@ -56,9 +56,11 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/int_arith_ll"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/topics_tv_arithmetic_header"
@@ -76,22 +78,48 @@
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
 
-                    <ImageButton
-                        android:id="@+id/int_arithmetic_btn"
-                        android:layout_width="400dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/topic_integer_arithmetic_btn" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_add_sub"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="ADDITION (+) / SUBTRACTION (-)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_mul"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:fontFamily="sans-serif-medium"
+                            android:text="Multiplication (*)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
 
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/num_sys_ll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/topics_tv_base_conversion_header"
@@ -106,25 +134,36 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
-                    <ImageButton
-                        android:id="@+id/num_sys_btn"
-                        android:layout_width="400dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/topic_number_base_systems_btn" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_bin_dec"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Binary \u003C-\u003E Decimal"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
                 </LinearLayout>
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ieee_ll"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:visibility="visible">
 
                 <TextView
                     android:id="@+id/topics_tv_iee_header"
@@ -139,53 +178,29 @@
                     android:textStyle="bold" />
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:orientation="horizontal">
-
-                    <ImageButton
-                        android:id="@+id/ieee_btn"
-                        android:layout_width="400dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/topic_ieee_btn" />
-                </LinearLayout>
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView9"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/minecraft"
-                    android:paddingLeft="5dp"
-                    android:paddingTop="10dp"
-                    android:text="Unicode Representation"
-                    android:textColor="#334767"
-                    android:textSize="16sp"
-                    android:textStyle="bold" />
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
                     android:layout_height="match_parent"
+                    android:gravity="center"
                     android:orientation="horizontal">
 
-                    <ImageButton
-                        android:id="@+id/utf_btn"
-                        android:layout_width="400dp"
-                        android:layout_height="200dp"
-                        android:layout_weight="1"
-                        android:backgroundTint="@android:color/transparent"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/topic_unicode_utf_btn" />
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:id="@+id/topics_btn_flt16"
+                            android:layout_width="200dp"
+                            android:layout_height="100dp"
+                            android:backgroundTint="#334767"
+                            android:text="Half Precision (Float16)"
+                            android:textColor="#FFFFFF"
+                            android:textSize="16sp" />
+
+                    </LinearLayout>
+
                 </LinearLayout>
+
             </LinearLayout>
 
         </LinearLayout>
