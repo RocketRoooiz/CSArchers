@@ -55,9 +55,6 @@ class LoginActivity : ComponentActivity() {
                         intent.putExtra(IntentKeys.USER_NAME_KEY.name, username)
                         Toast.makeText(this, "Welcome, $username!", Toast.LENGTH_SHORT).show()
                         startActivity(intent)
-                        finish()
-                    } else {
-                        Toast.makeText(this, "User data not found.", Toast.LENGTH_SHORT).show()
                     }
                 }
         }

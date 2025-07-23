@@ -11,6 +11,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+        <Button
+            android:id="@+id/topics_sim_logout_btn"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="30dp"
+            android:backgroundTint="#DB0202"
+            android:fontFamily="@font/pixelify_sans_bold"
+            android:text="Logout"
+            android:textColor="#E9E4E4"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <TextView
             android:id="@+id/topics_tv_header"
             android:layout_width="match_parent"

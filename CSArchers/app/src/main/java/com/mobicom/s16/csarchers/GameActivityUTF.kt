@@ -205,6 +205,8 @@ class GameActivityUTF : ComponentActivity() {
 
     private fun updateScore(viewBinding: ActivityGameBinding, points: Int) {
         score += points
+        val mydbHelper = MyDbHelper(this)
+        mydbHelper.addScore(points)
         viewBinding.gamescoreValueTv.text = score.toString()
     }
 

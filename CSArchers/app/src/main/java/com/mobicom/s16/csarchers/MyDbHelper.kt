@@ -126,6 +126,41 @@ class MyDbHelper(private val context: Context) {
             }
     }
 
+    fun logout(){
+        auth.signOut()
+    }
+
+    fun addScore(score: Int) {
+        val user = auth.currentUser
+        if (user == null) {
+            Toast.makeText(context, "User not logged in.", Toast.LENGTH_SHORT).show()
+            return
+        }
+
+        val uid = user.uid
+        val userRef = db.collection("users").document(uid)
+
+        db.runTransaction { transaction ->
+            val snapshot = transaction.get(userRef)
+            val currentWeekly = snapshot.getLong("weeklyScore") ?: 0
+            val currentTotal = snapshot.getLong("totalScore") ?: 0
+
+            val newWeekly = currentWeekly + score
+            val newTotal = currentTotal + score
+
+            transaction.update(userRef, mapOf(
+                "weeklyScore" to newWeekly,
+                "totalScore" to newTotal
+            ))
+        }.addOnSuccessListener {
+            Toast.makeText(context, "Score updated!", Toast.LENGTH_SHORT).show()
+        }.addOnFailureListener { e ->
+            Log.e(TAG, "Failed to update score: ${e.message}", e)
+            Toast.makeText(context, "Failed to update score: ${e.message}", Toast.LENGTH_LONG).show()
+        }
+    }
+
+
     fun getUsers(callback: (ArrayList<User>) -> Unit) {
         val userList = ArrayList<User>()
 

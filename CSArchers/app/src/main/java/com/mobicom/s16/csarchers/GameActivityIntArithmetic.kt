@@ -12,6 +12,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.activity.ComponentActivity
+import com.mobicom.s16.csarchers.MyDbHelper
 import com.mobicom.s16.csarchers.databinding.ActivityGameBinding
 import java.nio.charset.Charset
 import kotlin.random.Random
@@ -178,6 +179,8 @@ class GameActivityIntArithmetic : ComponentActivity() {
 
     private fun updateScore(viewBinding: ActivityGameBinding, points: Int) {
         score += points
+        val mydbHelper = MyDbHelper(this)
+        mydbHelper.addScore(points)
         viewBinding.gamescoreValueTv.text = score.toString()
     }
 
