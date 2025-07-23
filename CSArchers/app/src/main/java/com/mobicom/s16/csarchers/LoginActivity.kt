@@ -53,6 +53,7 @@ class LoginActivity : ComponentActivity() {
                         val username = document.getString("username") ?: "Unknown"
                         val intent = Intent(this, SelectModeActivity::class.java)
                         intent.putExtra(IntentKeys.USER_NAME_KEY.name, username)
+                        Toast.makeText(this, "Welcome, $username!", Toast.LENGTH_SHORT).show()
                         startActivity(intent)
                         finish()
                     } else {
