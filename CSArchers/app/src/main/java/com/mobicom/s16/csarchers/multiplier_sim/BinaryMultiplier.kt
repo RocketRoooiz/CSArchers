@@ -3,10 +3,6 @@ package com.mobicom.s16.csarchers.multiplier_sim
 import com.mobicom.s16.csarchers.Size
 import kotlin.math.pow
 
-data class MultiplierStep(val bit: Int, val add_m: Boolean, val carry: Boolean,
-                          val a: ULong, val a_plus_m: ULong, val a_shr: ULong,
-                          val q: ULong, val q_shr: ULong)
-
 class BinaryMultiplier {
     private var current_multiplicand: String = ""
     private var current_multiplier: String = ""
@@ -95,7 +91,7 @@ class BinaryMultiplier {
             val a_shr = a
 
             // Add a current step to the step list.
-            steps.add(MultiplierStep(i + 1, add_m, c, a, a_plus_m, a_shr, q, q_shr))
+            steps.add(MultiplierStep(i + 1, add_m, c, a_initial, a_plus_m, a_shr, q_initial, q_shr))
         }
 
         // Combine a and q to form the product

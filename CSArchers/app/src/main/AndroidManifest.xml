@@ -99,7 +99,7 @@
             android:name=".multiplier_sim.BinaryMultiplierSimActivity"
             android:exported="true"
             android:label="CSArchers"
-            android:theme="@style/Theme.CSArchers">
+            android:theme="@style/Theme.CSArchers2">
         </activity>
         <activity
             android:name=".LeaderboardActivity"

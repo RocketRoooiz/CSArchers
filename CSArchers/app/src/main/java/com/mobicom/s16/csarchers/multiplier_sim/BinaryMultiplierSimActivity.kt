@@ -1,19 +1,29 @@
 package com.mobicom.s16.csarchers.multiplier_sim
 
 import android.os.Bundle
+import android.util.DisplayMetrics
+import android.util.TypedValue
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.activity.ComponentActivity
+import androidx.core.view.GestureDetectorCompat
+import androidx.core.view.isGone
 
 import com.mobicom.s16.csarchers.Size
 import com.mobicom.s16.csarchers.databinding.ActivityBmSimBinding
 
 
-class BinaryMultiplierSimActivity : ComponentActivity() {
+class BinaryMultiplierSimActivity : AppCompatActivity() {
     private lateinit var viewBinding: ActivityBmSimBinding
+    private lateinit var gestureDetector: GestureDetectorCompat
 
     private var multiplier = BinaryMultiplier()
     private var multiplication_size = Size._8BITS
+    private var is_calculated = false;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,10 +32,52 @@ class BinaryMultiplierSimActivity : ComponentActivity() {
 
         // Update UI according to sharedPreferences.
         resetStateForBinaryOutput()
+        viewBinding.activityBmSimSwipeUpTv.isGone = !is_calculated
 
         viewBinding.activityBmSimCalculateBtn.setOnClickListener( View.OnClickListener {
             updateStateFromOperation()
         })
+
+        gestureDetector = GestureDetectorCompat(this, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onFling(
+                e1: MotionEvent?,
+                e2: MotionEvent,
+                velocityX: Float,
+                velocityY: Float
+            ): Boolean {
+                if (e1 == null || e2 == null) return false
+
+                // Calculate vertical swipe distance and speed
+                val diffY = e2.y - e1.y
+                val diffX = e2.x - e1.x
+
+                // Check if it's a swipe-up (diffY is negative) and meets thresholds
+                if (Math.abs(diffY) > 100 && Math.abs(diffY) > Math.abs(diffX) && diffY < 0) {
+                    onSwipeUp()
+                    return true
+                }
+                return false
+            }
+        })
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        return gestureDetector.onTouchEvent(event) || super.onTouchEvent(event)
+    }
+
+    private fun onSwipeUp() {
+        if (is_calculated) {
+            val bundle = Bundle()
+            bundle.putInt("size", multiplier.size.value)
+            bundle.putLong("m", multiplier.constant_m.toLong())
+            bundle.putParcelableArrayList("steps", multiplier.steps as ArrayList<MultiplierStep>)
+
+            val fragment = BinaryMultiplierSimSolutionFragment()
+            fragment.arguments = bundle
+
+            fragment.show(supportFragmentManager, "newTaskTag")
+        }
+        // Handle the swipe-up action (e.g., refresh content, show a menu, etc.)
     }
 
     private fun updateStateFromOperation() {
@@ -36,6 +88,9 @@ class BinaryMultiplierSimActivity : ComponentActivity() {
             val output = multiplier.operate(input1, input2)
 
             updateStateForBinaryOutput(output)
+
+            is_calculated = true;
+            viewBinding.activityBmSimSwipeUpTv.isGone = !is_calculated
 
             viewBinding.activityBmSimMultiplicandEt.error = null // Remove an existing error message for input 1 if successful.
             viewBinding.activityBmSimMultiplierEt.error = null // Remove an existing error message for input 2 if successful.
