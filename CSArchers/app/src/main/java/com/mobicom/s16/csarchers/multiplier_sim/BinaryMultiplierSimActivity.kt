@@ -90,7 +90,6 @@ class BinaryMultiplierSimActivity : AppCompatActivity() {
             updateStateForBinaryOutput(output)
 
             is_calculated = true;
-            viewBinding.activityBmSimSwipeUpTv.isGone = !is_calculated
 
             viewBinding.activityBmSimMultiplicandEt.error = null // Remove an existing error message for input 1 if successful.
             viewBinding.activityBmSimMultiplierEt.error = null // Remove an existing error message for input 2 if successful.
@@ -106,6 +105,8 @@ class BinaryMultiplierSimActivity : AppCompatActivity() {
                 viewBinding.activityBmSimMultiplicandEt.error = null
             }
         }
+
+        viewBinding.activityBmSimSwipeUpTv.isGone = !is_calculated
     }
 
     private fun updateStateForBinaryOutput(output: String) {

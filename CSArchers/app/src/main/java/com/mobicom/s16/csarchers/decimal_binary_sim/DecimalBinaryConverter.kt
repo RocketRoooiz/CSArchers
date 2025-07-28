@@ -3,9 +3,6 @@ package com.mobicom.s16.csarchers.decimal_binary_sim
 import com.mobicom.s16.csarchers.Size
 import kotlin.math.pow
 
-data class UnsignedDecimalToBinaryStep(val dividend: Long, val quotient: Long, val remainder: Long, val bit: Int)
-data class UnsignedBinaryToDecimalStep(val bit: Long, val exponent: Long, val product: Long)
-
 class DecimalBinaryConverter {
     var current_input: String = ""
     var current_output: String = ""
@@ -90,6 +87,8 @@ class DecimalBinaryConverter {
     fun convertBinary2Decimal(input: String): String {
         current_input = input
 
+        unsigned_binary_to_decimal_steps.clear()
+
         // Validate binary string
         require(input.matches(Regex("[01]+"))) { "Invalid binary string" }
         require(input.length == size.value) { "Binary string length doesn't match selected size" }
@@ -113,11 +112,13 @@ class DecimalBinaryConverter {
                 current_output = unsigned_decimal.toString()
 
                 for (i in 0 until size.value) {
-                    val bit = current_output[size.value - i - 1].code - 48L
-                    val exponent = i.toLong()
-                    val product = (2.0.pow(i)).toLong() * bit
+                    val bit = if (current_input[size.value - i - 1] == '1') 1L else 0L
 
-                    unsigned_binary_to_decimal_steps.add(UnsignedBinaryToDecimalStep(bit, exponent, product))
+                    val powerOfTwo = 1L shl i
+
+                    val product = powerOfTwo * bit
+
+                    unsigned_binary_to_decimal_steps.add(UnsignedBinaryToDecimalStep(bit, i, powerOfTwo, product))
                 }
             }
         } catch (e: NumberFormatException) {

@@ -1,21 +1,29 @@
 package com.mobicom.s16.csarchers.decimal_binary_sim
 
 import android.os.Bundle
+import android.view.GestureDetector
+import android.view.MotionEvent
 import android.view.View
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.ComponentActivity
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.GestureDetectorCompat
 import androidx.core.view.isGone
 import com.mobicom.s16.csarchers.R
 import com.mobicom.s16.csarchers.Size
 import com.mobicom.s16.csarchers.databinding.ActivityDbSimBinding
+import com.mobicom.s16.csarchers.multiplier_sim.BinaryMultiplierSimSolutionFragment
+import com.mobicom.s16.csarchers.multiplier_sim.MultiplierStep
 
-class DecimalBinarySimActivity : ComponentActivity() {
+class DecimalBinarySimActivity : AppCompatActivity() {
     companion object {
         const val BACKGROUND_TINT_COLOUR = "#E6C5A0"
     }
 
     private lateinit var viewBinding: ActivityDbSimBinding
+    private lateinit var gestureDetector: GestureDetectorCompat
 
     private var converter = DecimalBinaryConverter()
     private var convert_op: (String) -> String = converter::convertDecimal2Binary
@@ -23,12 +31,16 @@ class DecimalBinarySimActivity : ComponentActivity() {
     private var are_biaries_signed = false
     private var decimal_to_binary = true
 
+    private var is_ud2b_performed = false
+    private var is_ub2d_performed = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         viewBinding = ActivityDbSimBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
 
         // Update UI according to sharedPreferences.
+        viewBinding.activityDbSimSwipeUpTv.isGone = !(is_ud2b_performed || is_ud2b_performed)
         updateStateForDataType()
         updateStateForSize()
         updateStateForMode()
@@ -61,6 +73,55 @@ class DecimalBinarySimActivity : ComponentActivity() {
         viewBinding.activityDbSimConvertBtn.setOnClickListener( View.OnClickListener {
             updateStateFromConversion()
         })
+
+        gestureDetector = GestureDetectorCompat(this, object : GestureDetector.SimpleOnGestureListener() {
+            override fun onFling(
+                e1: MotionEvent?,
+                e2: MotionEvent,
+                velocityX: Float,
+                velocityY: Float
+            ): Boolean {
+                if (e1 == null || e2 == null) return false
+
+                // Calculate vertical swipe distance and speed
+                val diffY = e2.y - e1.y
+                val diffX = e2.x - e1.x
+
+                // Check if it's a swipe-up (diffY is negative) and meets thresholds
+                if (Math.abs(diffY) > 100 && Math.abs(diffY) > Math.abs(diffX) && diffY < 0) {
+                    onSwipeUp()
+                    return true
+                }
+                return false
+            }
+        })
+    }
+
+    override fun onTouchEvent(event: MotionEvent): Boolean {
+        return gestureDetector.onTouchEvent(event) || super.onTouchEvent(event)
+    }
+
+    private fun onSwipeUp() {
+        Toast.makeText(this, "Swipe Up Detected!", Toast.LENGTH_SHORT).show()
+
+        if (is_ud2b_performed || is_ub2d_performed) {
+            val bundle = Bundle()
+
+            if (is_ud2b_performed) {
+                bundle.putString("configuration", "ud2b")
+                bundle.putParcelableArrayList("steps", converter.unsigned_decimal_to_binary_steps as ArrayList<UnsignedDecimalToBinaryStep>)
+            } else if (is_ub2d_performed) {
+                bundle.putString("configuration", "ub2d")
+                bundle.putParcelableArrayList("steps", converter.unsigned_binary_to_decimal_steps as ArrayList<UnsignedBinaryToDecimalStep>)
+                bundle.putString("sum", converter.current_output)
+            }
+
+            val fragment = DecimalBinarySimSolutionFragment()
+            fragment.arguments = bundle
+
+            fragment.show(supportFragmentManager, "newTaskTag")
+        }
+        // Handle the swipe-up action (e.g., refresh content, show a menu, etc.)
     }
 
     private fun updateStateForDataType() {
@@ -155,9 +216,17 @@ class DecimalBinarySimActivity : ComponentActivity() {
             }
 
             viewBinding.activityDbSimInputEt.error = null // Remove an existing error message if successful.
+
+            is_ud2b_performed = !are_biaries_signed && decimal_to_binary
+            is_ub2d_performed = !are_biaries_signed && !decimal_to_binary
         } catch (e: Exception) {
             viewBinding.activityDbSimInputEt.error = e.message
+
+            is_ud2b_performed = false
+            is_ub2d_performed = false
         }
+
+        viewBinding.activityDbSimSwipeUpTv.isGone = !(is_ud2b_performed || is_ub2d_performed)
     }
 
     private fun updateStateForInputHeader() {

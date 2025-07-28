@@ -5,14 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobicom.s16.csarchers.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.mobicom.s16.csarchers.databinding.ActivityBmSimBinding
-import com.mobicom.s16.csarchers.databinding.FragmentActivityBmSimSolutionBinding
+import com.mobicom.s16.csarchers.databinding.FragmentActivityBmDbcSimSolutionBinding
 
 class BinaryMultiplierSimSolutionFragment : BottomSheetDialogFragment() {
-    private lateinit var viewBinding: FragmentActivityBmSimSolutionBinding
+    private lateinit var viewBinding: FragmentActivityBmDbcSimSolutionBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +23,7 @@ class BinaryMultiplierSimSolutionFragment : BottomSheetDialogFragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        viewBinding = FragmentActivityBmSimSolutionBinding.inflate(layoutInflater, container, false)
+        viewBinding = FragmentActivityBmDbcSimSolutionBinding.inflate(layoutInflater, container, false)
         return viewBinding.root
     }
 
@@ -33,11 +34,15 @@ class BinaryMultiplierSimSolutionFragment : BottomSheetDialogFragment() {
         val m = requireArguments().getLong("m").toULong()
         val steps = requireArguments().getParcelableArrayList<MultiplierStep>("steps")
 
-        viewBinding.activityBmSimSolutionSheetMTv.text = "M: ${m.toString(2).padStart(size, '0')}"
-        viewBinding.activityBmSimStepsRv.adapter = SolutionAdapter(steps!!, size)
-        viewBinding.activityBmSimStepsRv.layoutManager = LinearLayoutManager(this.context)
+        viewBinding.activityBmDbcUd2bHeaderLl.isGone = true
+        viewBinding.activityBmDbcUb2dHeaderLl.isGone = true
+        viewBinding.activityBmDbcSumTv.isGone = true
 
-        viewBinding.activityBmSimSolutionSheetBackBtn.setOnClickListener(View.OnClickListener {
+        viewBinding.activityBmDbcSimSolutionMTv.text = "M: ${m.toString(2).padStart(size, '0')}"
+        viewBinding.activityBmDbcSimStepsRv.adapter = SolutionAdapter(steps!!, size)
+        viewBinding.activityBmDbcSimStepsRv.layoutManager = LinearLayoutManager(this.context)
+
+        viewBinding.activityBmDbcSimSolutionBackBtn.setOnClickListener(View.OnClickListener {
             requireActivity().getSupportFragmentManager().beginTransaction()
                 .remove(this)
                 .commit();

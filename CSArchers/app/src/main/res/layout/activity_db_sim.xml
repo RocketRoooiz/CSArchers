@@ -362,82 +362,19 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/activity_db_sim_solution_ll"
-        android:layout_width="345dp"
-        android:layout_height="0dp"
-        android:layout_margin="25dp"
-        android:orientation="vertical"
+    <TextView
+        android:id="@+id/activity_db_sim_swipe_up_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="260dp"
+        android:fontFamily="@font/minecraft"
+        android:gravity="center"
+        android:text="Swipe up on the screen for solution."
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activity_db_sim_outputs_ll">
-
-        <TextView
-            android:id="@+id/activity_db_sim_solution_header_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:fontFamily="@font/minecraft"
-            android:text="Solution:"
-            android:textSize="20sp" />
-
-        <LinearLayout
-            android:id="@+id/activity_db_sim_step_header_tv"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col1_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="dividend"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col2_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="divisor"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col3_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="quotient"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col4_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="bit"
-                android:textSize="14sp" />
-
-            <TextView
-                android:id="@+id/activity_db_sim_step_header_col5_tv"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:fontFamily="@font/minecraft"
-                android:text="position"
-                android:textSize="14sp" />
-        </LinearLayout>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/activity_db_sim_steps_rv"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-    </LinearLayout>
+        app:layout_constraintHorizontal_bias="0.425"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Minecraft Font Source: https://www.dafont.com/minecraft.fonthttps://www.dafont.com/minecraft.font-->
 </androidx.constraintlayout.widget.ConstraintLayout>

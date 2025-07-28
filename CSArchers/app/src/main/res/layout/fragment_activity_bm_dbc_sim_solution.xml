@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_bm_dbc_sim_solution_cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/simulation_background"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/activity_bm_dbc_sim_solution_title_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:fontFamily="@font/minecraft"
+        android:text="Solution Steps"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/activity_bm_dbc_sim_solution_m_tv"
+        android:layout_width="162dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/minecraft"
+        android:text="M: "
+        android:textSize="16sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_bm_dbc_sim_solution_title_tv" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/activity_bm_dbc_sim_steps_rv"
+        android:layout_width="380dp"
+        android:layout_height="350dp"
+        android:layout_marginTop="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.452"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_bm_dbc_sim_solution_m_tv" />
+
+    <Button
+        android:id="@+id/activity_bm_dbc_sim_solution_back_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_weight="5"
+        android:backgroundTint="#564839"
+        android:fontFamily="@font/minecraft"
+        android:text="Back"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_bm_dbc_sum_tv" />
+
+    <LinearLayout
+        android:id="@+id/activity_bm_dbc_ud2b_header_ll"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/activity_bm_dbc_sim_steps_rv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.545"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/activity_bm_dbc_ud2b_header_dividend_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="Dividend"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/activity_bm_dbc_ud2b_header_quotient_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="Quotient"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/activity_bm_dbc_ud2b_header_remainder_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="Remainder"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/activity_bm_dbc_ud2b_header_bit_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="Bit"
+            android:textSize="16sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/activity_bm_dbc_ub2d_header_ll"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="11dp"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/activity_bm_dbc_sim_steps_rv"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="gone">
+
+        <TextView
+            android:id="@+id/activity_bm_dbc_ub2d_header_bit_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="Bit"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/activity_bm_dbc_ub2d_header_power_of_two_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="Power of Two"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/activity_bm_dbc_ub2d_header_product_ll"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/minecraft"
+            android:gravity="center"
+            android:text="Product"
+            android:textSize="16sp" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/activity_bm_dbc_sum_tv"
+        android:layout_width="77dp"
+        android:layout_height="15dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="25dp"
+        android:fontFamily="@font/minecraft"
+        android:gravity="right"
+        android:text="Sum: "
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/activity_bm_dbc_sim_steps_rv" />
+
+
+    <!-- Minecraft Font Source: https://www.dafont.com/minecraft.fonthttps://www.dafont.com/minecraft.font-->
+</androidx.constraintlayout.widget.ConstraintLayout>
