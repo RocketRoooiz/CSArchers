@@ -5,7 +5,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView.Adapter
 import com.mobicom.s16.csarchers.databinding.ActivityBmSimStepLayoutBinding
 
-class SolutionAdapter(private val steps: ArrayList<MultiplierStep>): Adapter<StepViewHolder>() {
+class SolutionAdapter(private val steps: ArrayList<MultiplierStep>, private val bit_size: Int): Adapter<StepViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): StepViewHolder {
         val inflater = LayoutInflater.from(parent.context)
         val view = ActivityBmSimStepLayoutBinding.inflate(inflater, parent, false)
@@ -14,7 +14,7 @@ class SolutionAdapter(private val steps: ArrayList<MultiplierStep>): Adapter<Ste
     }
 
     override fun onBindViewHolder(holder: StepViewHolder, position: Int) {
-        holder.bindData(steps.get(position))
+        holder.bindData(steps.get(position), bit_size)
     }
 
     override fun getItemCount(): Int {

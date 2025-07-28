@@ -34,7 +34,7 @@ class BinaryMultiplierSimSolutionFragment : BottomSheetDialogFragment() {
         val steps = requireArguments().getParcelableArrayList<MultiplierStep>("steps")
 
         viewBinding.activityBmSimSolutionSheetMTv.text = "M: ${m.toString(2).padStart(size, '0')}"
-        viewBinding.activityBmSimStepsRv.adapter = SolutionAdapter(steps!!)
+        viewBinding.activityBmSimStepsRv.adapter = SolutionAdapter(steps!!, size)
         viewBinding.activityBmSimStepsRv.layoutManager = LinearLayoutManager(this.context)
 
         viewBinding.activityBmSimSolutionSheetBackBtn.setOnClickListener(View.OnClickListener {

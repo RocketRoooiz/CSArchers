@@ -70,13 +70,13 @@ class BinaryMultiplier {
             // Add multiplicand to accumulator if LSB of q is 1
             val add_m = q and 1uL == 1uL
             a += if (q and 1uL == 1uL) m else 0uL
-            val a_plus_m = a
 
             // Check for carry
             carry = a > unsigned_max
             val c = carry
 
             a = a and unsigned_max
+            val a_plus_m = a
 
             // Shift q right and bring in LSB from a
             q = q shr 1

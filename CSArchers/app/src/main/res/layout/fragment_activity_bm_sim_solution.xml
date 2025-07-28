@@ -12,7 +12,7 @@
         android:id="@+id/activity_bm_sim_solution_sheet_title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:fontFamily="@font/minecraft"
         android:text="Solution Steps"
         android:textSize="24sp"
