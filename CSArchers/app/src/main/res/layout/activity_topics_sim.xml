@@ -94,16 +94,26 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="match_parent"
+                        android:layout_marginRight="5dp"
                         android:orientation="vertical">
 
                         <Button
                             android:id="@+id/topics_btn_add_sub"
                             android:layout_width="200dp"
                             android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="ADDITION (+) / SUBTRACTION (-)"
+                            android:background="@drawable/subtopic_addsub_btn"
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/addsub_Tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/minecraft"
+                            android:paddingTop="5dp"
+                            android:text="Addition / Subtraction"
+                            android:textAlignment="center"
+                            android:textColor="#334767" />
 
                     </LinearLayout>
 
@@ -116,11 +126,20 @@
                             android:id="@+id/topics_btn_mul"
                             android:layout_width="200dp"
                             android:layout_height="100dp"
-                            android:backgroundTint="#334767"
+                            android:background="@drawable/subtopic_mult_btn"
                             android:fontFamily="sans-serif-medium"
-                            android:text="Multiplication (*)"
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/mult_Tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/minecraft"
+                            android:paddingTop="5dp"
+                            android:text="Multiplication"
+                            android:textAlignment="center"
+                            android:textColor="#334767" />
 
                     </LinearLayout>
 
@@ -161,10 +180,19 @@
                             android:id="@+id/topics_btn_bin_dec"
                             android:layout_width="200dp"
                             android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Binary \u003C-\u003E Decimal"
+                            android:background="@drawable/subtopic_decbin_btn"
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/bindec_Tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/minecraft"
+                            android:paddingTop="5dp"
+                            android:text="Decimal Binary Conversion"
+                            android:textAlignment="center"
+                            android:textColor="#334767" />
 
                     </LinearLayout>
 
@@ -205,10 +233,19 @@
                             android:id="@+id/topics_btn_flt16"
                             android:layout_width="200dp"
                             android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="Half Precision (Float16)"
+                            android:background="@drawable/subtopic_halfprec_btn"
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/halfprec_Tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/minecraft"
+                            android:paddingTop="5dp"
+                            android:text="Half Precision (Float 16)"
+                            android:textAlignment="center"
+                            android:textColor="#334767" />
 
                     </LinearLayout>
 
@@ -250,10 +287,19 @@
                             android:id="@+id/topics_btn_utf8"
                             android:layout_width="200dp"
                             android:layout_height="100dp"
-                            android:backgroundTint="#334767"
-                            android:text="UTF 8"
+                            android:background="@drawable/subtopic_utf8_btn"
                             android:textColor="#FFFFFF"
                             android:textSize="16sp" />
+
+                        <TextView
+                            android:id="@+id/utf8_Tv"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/minecraft"
+                            android:paddingTop="5dp"
+                            android:text="UTF 8"
+                            android:textAlignment="center"
+                            android:textColor="#334767" />
 
                     </LinearLayout>
 
