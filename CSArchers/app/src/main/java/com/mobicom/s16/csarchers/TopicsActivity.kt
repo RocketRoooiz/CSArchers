@@ -4,11 +4,48 @@ package com.mobicom.s16.csarchers
 import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.activity.ComponentActivity
 import com.mobicom.s16.csarchers.databinding.ActivityTopicsBinding
-
+import android.os.Handler
+import android.os.Looper
+import android.view.Gravity
+import android.view.LayoutInflater
+import android.view.ViewGroup
+import android.widget.PopupWindow
+import android.widget.TextView
 
 class TopicsActivity : ComponentActivity() {
+    private fun showPopup(anchorView: View, message: String) {
+        val inflater = LayoutInflater.from(this)
+        val popupView = inflater.inflate(R.layout.popup_description, null)
+        val textView = popupView.findViewById<TextView>(R.id.desc_text)
+        textView.text = message
+
+        val popupWindow = PopupWindow(
+            popupView,
+            ViewGroup.LayoutParams.WRAP_CONTENT,
+            ViewGroup.LayoutParams.WRAP_CONTENT
+        ).apply {
+            isOutsideTouchable = true
+            isFocusable = true // Needed so it can dismiss when clicking outside
+            elevation = 10f
+        }
+
+        // Show popup just *below* the anchor view
+        anchorView.post {
+            val location = IntArray(2)
+            anchorView.getLocationOnScreen(location)
+            val x = location[0]
+            val y = location[1]
+
+            // Offset below the button
+            val yOffset = anchorView.height // Add some margin
+            popupWindow.showAtLocation(anchorView, Gravity.NO_GRAVITY, x + 25, y + yOffset)
+        }
+    }
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewBinding : ActivityTopicsBinding = ActivityTopicsBinding.inflate(layoutInflater)
@@ -76,6 +113,32 @@ class TopicsActivity : ComponentActivity() {
                 startActivity(intent)
             }
         }
+
+        // Show tooltips on long press
+        viewBinding.intArithmeticBtn.setOnLongClickListener {
+            showPopup(it, "Perform basic operations using whole numbers, such as addition, subtraction, multiplication, and division.\n\n" +
+                    "Understand how integers behave during calculations and how overflow or signed/unsigned values can affect the result.")
+            true
+        }
+
+        viewBinding.numSysBtn.setOnLongClickListener {
+            showPopup(it, "Convert numbers between different bases like binary (base-2), octal (base-8), decimal (base-10), and hexadecimal (base-16).\n\n" +
+                    "Learn how computers represent and manipulate numbers using various base systems.")
+            true
+        }
+
+        viewBinding.ieeeBtn.setOnLongClickListener {
+            showPopup(it, "Represent decimal numbers in binary using the IEEE 754 floating-point standard.\n\n" +
+                    "Explore how computers store real numbers using formats like single-precision (32-bit) and double-precision (64-bit), including sign, exponent, and mantissa.")
+            true
+        }
+
+        viewBinding.utfBtn.setOnLongClickListener {
+            showPopup(it, "Understand how characters and symbols are encoded as numbers using Unicode and formats like UTF-8, UTF-16, and UTF-32.\n\n" +
+                    "Learn how different languages, emojis, and special characters are stored and interpreted by computers using standardized encoding.")
+            true
+        }
+
 
         val mydbHelper = MyDbHelper(this)
         viewBinding.topicsLogoutBtn.setOnClickListener {

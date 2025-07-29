@@ -15,9 +15,9 @@
             android:id="@+id/topics_logout_btn"
             android:layout_width="80dp"
             android:layout_height="50dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="30dp"
-            android:backgroundTint="#DB0202"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:backgroundTint="#D05E5A"
             android:fontFamily="@font/pixelify_sans_bold"
             android:text="Logout"
             android:textColor="#E9E4E4"
@@ -29,7 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:fontFamily="@font/pixelify_sans"
+            android:fontFamily="@font/minecraft"
             android:gravity="center"
             android:padding="20dp"
             android:text="Topics"
@@ -96,7 +96,8 @@
                         android:layout_weight="1"
                         android:backgroundTint="@android:color/transparent"
                         android:scaleType="fitXY"
-                        android:src="@drawable/topic_integer_arithmetic_btn" />
+                        android:src="@drawable/topic_integer_arithmetic_btn"
+                        android:tooltipText="Convert decimals to IEEE 754 format"/>
 
                 </LinearLayout>
             </LinearLayout>

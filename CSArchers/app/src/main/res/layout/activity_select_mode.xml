@@ -11,8 +11,6 @@
         android:id="@+id/select_mode_btn_leaderboard"
         android:layout_width="70dp"
         android:layout_height="70dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="10dp"
         android:adjustViewBounds="true"
         android:alpha="1.0"
         android:background="@android:color/transparent"
@@ -29,9 +27,9 @@
         android:id="@+id/select_mode_logout_btn"
         android:layout_width="80dp"
         android:layout_height="50dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="30dp"
-        android:backgroundTint="#DB0202"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="5dp"
+        android:backgroundTint="#D05E5A"
         android:fontFamily="@font/pixelify_sans_bold"
         android:text="Logout"
         android:textColor="#E9E4E4"
@@ -72,7 +70,7 @@
             android:fontFamily="@font/minecraft"
             android:text="Ready for some ARCHery?"
             android:textColor="#334666"
-            android:textSize="30sp" />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/select_mode_tv_welcome"
@@ -82,7 +80,7 @@
             android:gravity="center"
             android:text="textview"
             android:textColor="#334666"
-            android:textSize="30sp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <ImageButton
