@@ -9,6 +9,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.auth
 import com.google.firebase.firestore.firestore
 import com.mobicom.s16.csarchers.databinding.ActivityLoginBinding
+import com.mobicom.s16.csarchers.notification_senders.AlarmScheduler
+import com.mobicom.s16.csarchers.notification_senders.NotificationHelper
 
 
 class LoginActivity : ComponentActivity() {
@@ -22,6 +24,8 @@ class LoginActivity : ComponentActivity() {
         setContentView(viewBinding.root)
         auth = Firebase.auth
         val mydbHelper = MyDbHelper(this)
+
+
 
         viewBinding.loginBtnSubmit.setOnClickListener {
             val email = viewBinding.loginEtEmail.text.toString().trim()

@@ -3,16 +3,29 @@ package com.mobicom.s16.csarchers
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.compose.material3.AlertDialog
+import androidx.core.app.ActivityCompat
 import com.mobicom.s16.csarchers.databinding.ActivitySelectModeBinding
+import com.mobicom.s16.csarchers.notification_senders.AlarmScheduler
+import com.mobicom.s16.csarchers.notification_senders.NotificationHelper
 
 class SelectModeActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val viewBinding : ActivitySelectModeBinding = ActivitySelectModeBinding.inflate(layoutInflater)
         setContentView(viewBinding.root)
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(android.Manifest.permission.POST_NOTIFICATIONS),
+                1
+            )
+        }
+        AlarmScheduler.scheduleWeeklyAlarm(this)
+
 
         viewBinding.selectModeTvWelcome.text = intent.getStringExtra(IntentKeys.USER_NAME_KEY.name
         )
