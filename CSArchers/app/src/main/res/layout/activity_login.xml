@@ -34,7 +34,7 @@
                 android:id="@+id/login_tv_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:text="Email: "
                 android:textColor="#334767"
                 android:textSize="16sp"
@@ -46,7 +46,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#334767"
                 android:ems="10"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:inputType="text"
                 android:textColor="#334767" />
         </LinearLayout>
@@ -61,7 +61,7 @@
                 android:id="@+id/login_tv_password"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:text="Password:"
                 android:textColor="#334767"
                 android:textSize="16sp"
@@ -73,7 +73,7 @@
                 android:layout_height="wrap_content"
                 android:backgroundTint="#334767"
                 android:ems="10"
-                android:fontFamily="@font/pixelify_sans"
+                android:fontFamily="@font/minecraft"
                 android:inputType="textPassword"
                 android:textColor="#334767" />
         </LinearLayout>
