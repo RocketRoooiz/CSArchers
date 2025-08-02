@@ -30,7 +30,7 @@ class LeaderboardActivity : ComponentActivity() {
         recyclerView = viewBinding.recyclerView
         recyclerView.layoutManager = LinearLayoutManager(this)
 
-        myAdapter = LeaderboardAdapter(userList)
+        myAdapter = LeaderboardAdapter(userList, isWeekly)
         recyclerView.adapter = myAdapter
 
         viewBinding.leaderboardTvMode.text = ALL_TIME_MODE
@@ -51,6 +51,7 @@ class LeaderboardActivity : ComponentActivity() {
             // Reload sorted list when mode switches
             mydbHelper.getUsers { users ->
                 updateUserList(users, viewBinding)
+                myAdapter.updateMode(isWeekly)  // <- update the mode and refresh view
             }
         }
     }
