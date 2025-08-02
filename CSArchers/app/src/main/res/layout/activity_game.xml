@@ -249,7 +249,6 @@
                 android:id="@+id/answer_layout"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_margin="5dp"
                 android:layout_weight="3"
                 android:orientation="vertical"
                 android:paddingRight="5dp">
@@ -257,7 +256,7 @@
                 <TextView
                     android:id="@+id/frombasenum_Tv"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:fontFamily="@font/minecraft"
                     android:gravity="center_vertical"
@@ -268,13 +267,16 @@
                 <EditText
                     android:id="@+id/tobasenum_Et"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
+                    android:layout_height="0dp"
                     android:layout_weight="1"
                     android:ems="10"
                     android:fontFamily="@font/minecraft"
                     android:gravity="bottom"
+                    android:hint="answer here"
+                    android:includeFontPadding="false"
                     android:inputType="text"
                     android:textColor="#564839"
+                    android:textColorHint="#C3A893"
                     android:textSize="20sp" />
 
             </LinearLayout>

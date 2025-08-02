@@ -1,6 +1,7 @@
-package com.mobicom.s16.csarchers
+package com.mobicom.s16.csarchers.leaderboard
 
 import androidx.recyclerview.widget.RecyclerView
+import com.mobicom.s16.csarchers.User
 import com.mobicom.s16.csarchers.databinding.UsersLayoutBinding
 
 class LeaderboardViewHolder (private val viewBinding: UsersLayoutBinding) : RecyclerView.ViewHolder(viewBinding.root) {

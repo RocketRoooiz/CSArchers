@@ -93,7 +93,8 @@
                 android:fontFamily="@font/minecraft"
                 android:gravity="center"
                 android:text="Forgot Password?"
-                android:textColor="#334767" />
+                android:textColor="#334767"
+                android:visibility="gone" />
 
             <TextView
                 android:id="@+id/login_tv_create"
@@ -114,7 +115,7 @@
             android:layout_marginTop="10dp"
             android:backgroundTint="#334767"
             android:fontFamily="@font/minecraft"
-            android:text="submit"
+            android:text="Login"
             android:textColor="#FFFFFF"
             android:textSize="14sp" />
 

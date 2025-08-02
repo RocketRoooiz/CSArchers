@@ -15,7 +15,7 @@ import com.mobicom.s16.csarchers.binary_add_sub_sim.BinaryAddSubSimActivity
 import com.mobicom.s16.csarchers.decimal_binary_sim.DecimalBinarySimActivity
 import com.mobicom.s16.csarchers.floating_point_sim.HalfPrecisionFloatSimActivity
 import com.mobicom.s16.csarchers.multiplier_sim.BinaryMultiplierSimActivity
-import com.mobicom.s16.csarchers.databinding.ActivityTopicsBinding
+import com.mobicom.s16.csarchers.leaderboard.LeaderboardActivity
 
 class TopicsSimActivity : ComponentActivity() {
     private fun showPopup(anchorView: View, message: String) {

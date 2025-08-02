@@ -103,7 +103,7 @@
             android:theme="@style/Theme.CSArchers2">
         </activity>
         <activity
-            android:name=".LeaderboardActivity"
+            android:name=".leaderboard.LeaderboardActivity"
             android:exported="true"
             android:label="CSArchers"
             android:theme="@style/Theme.CSArchers">

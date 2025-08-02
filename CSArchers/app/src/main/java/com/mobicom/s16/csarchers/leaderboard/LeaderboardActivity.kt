@@ -1,10 +1,12 @@
-package com.mobicom.s16.csarchers
+package com.mobicom.s16.csarchers.leaderboard
 
 import android.os.Bundle
 import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.mobicom.s16.csarchers.MyDbHelper
+import com.mobicom.s16.csarchers.User
 import com.mobicom.s16.csarchers.databinding.ActivityLeaderboardBinding
 
 class LeaderboardActivity : ComponentActivity() {

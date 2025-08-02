@@ -7,13 +7,12 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
 import com.mobicom.s16.csarchers.databinding.ActivityTopicsBinding
-import android.os.Handler
-import android.os.Looper
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.PopupWindow
 import android.widget.TextView
+import com.mobicom.s16.csarchers.leaderboard.LeaderboardActivity
 
 class TopicsActivity : ComponentActivity() {
     private fun showPopup(anchorView: View, message: String) {
